@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+/*
+  Identidade visual (referência: mockup "Fabinho Scooby — foto real").
+  Tema claro editorial: fundo creme, tinta preta, tipografia display pesada,
+  molduras arredondadas com borda preta, botões em pílula preta.
+*/
+@theme {
+  --color-background: #efeee9;
+  --color-foreground: #0a0a0a;
+  --color-ink: #0a0a0a;
+  --color-muted: #63625c;
+  --color-surface: #f7f6f2;
+  --color-surface-2: #e6e5df;
+  --color-border: #d3d2cb;
+  --color-accent: #0a0a0a;
+  --color-accent-soft: #2b2b2b;
+  --color-accent-fg: #f5f4ef;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --breakpoint-xs: 22.5rem;
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-ink text-accent-fg;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-ink ring-offset-2 ring-offset-background rounded-sm;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility container-site {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+@utility heading-display {
+  @apply font-display font-extrabold tracking-[-0.04em] leading-[0.95];
+}
+
+@utility eyebrow {
+  @apply text-xs font-semibold uppercase tracking-[0.2em] text-muted;
+}
+
+@utility hairline {
+  @apply border-t border-border;
+}
+
+/* Moldura preta arredondada usada no hero e em blocos de destaque. */
+@utility frame {
+  @apply rounded-[1.75rem] border-[1.5px] border-ink sm:rounded-[2rem];
+}

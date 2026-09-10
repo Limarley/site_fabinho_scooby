@@ -1,0 +1,101 @@
+{
+  "name": "Fabinho Scooby",
+  "fullName": "Fabinho Scooby Vaccarezza",
+  "roles": ["Tecladista", "Diretor Musical", "Produtor"],
+  "tagline": "Do teclado à direção musical, uma carreira construída em cima do palco.",
+  "location": "Salvador, Bahia",
+  "born": "Carnaval de 1980",
+  "heroDescription": "Fabinho Scooby é tecladista, diretor musical e produtor, com trajetória em turnês, estúdios e produções ao lado de nomes de peso da música brasileira.",
+  "bioShort": "Fabinho Scooby é tecladista, diretor musical e produtor baseado em Salvador (BA). Músico profissional desde 1999, integra o Jammil e Uma Noites desde 2011, é tecladista do 30PRAUM e foi indicado ao Latin Grammy. É sócio da produtora PLUS+, fundador do 3h3ads Keys e idealizador do Tecladismo Brasil.",
+  "bioLong": [
+    "Fabinho Scooby Vaccarezza nasceu no Carnaval de 1980, em Salvador (BA). Autodidata, começou de ouvido, observando outros músicos, e se tornou profissional em 1999, atuando como sideman e freelancer no mercado baiano e nordestino, do arrocha ao zouk.",
+    "Aprofundou a formação na Oficina de Piano da UFBA (2001) e na extensão do Núcleo Moderno de Música com o maestro Bira Marques (2010). É graduando em Licenciatura em Música pela UCSal e tem formação em produção musical pela UniCesumar.",
+    "Em 2011 assumiu os teclados do Jammil e Uma Noites, com quem gravou o DVD ao vivo \"Jammil de Todas as Praias\", assinou a composição \"Resenha Do Dread\" e passou pelos principais programas da TV brasileira. É tecladista do 30PRAUM e foi indicado ao Latin Grammy. Como arranjador e produtor, assina trabalhos com ATTØØXXA e Carlinhos Brown.",
+    "Fora do palco, é sócio proprietário da produtora PLUS+ desde 2011, sócio-fundador do projeto 3h3ads Keys e idealizador e CEO do Tecladismo Brasil, comunidade de tecladistas voltada à troca de conhecimento sobre instrumento, software e carreira. É endorsee da Stay Music. Já excursionou pelo Brasil, Estados Unidos, Europa e Oceania."
+  ],
+  "whoIs": [
+    "Nascido no Carnaval de 1980, em Salvador, Fabinho começou de ouvido, observando. Sem professor, sem partitura: só a vontade de tocar o que escutava.",
+    "A base continua sendo a Bahia. É dali que saem as turnês, as produções e a comunidade de tecladistas que ele lidera hoje."
+  ],
+  "highlights": [
+    { "id": "grammy", "value": "Latin Grammy", "label": "Indicado" },
+    { "id": "anos", "value": "25+", "label": "Anos de carreira" },
+    { "id": "bandas", "value": "Jammil · 30PRAUM", "label": "Tecladista" },
+    { "id": "turnes", "value": "3 continentes", "label": "Turnês internacionais" }
+  ],
+  "education": [
+    {
+      "id": "autodidata",
+      "period": "Início",
+      "institution": "Autodidata",
+      "description": "Começou de ouvido, observando outros músicos."
+    },
+    {
+      "id": "ufba",
+      "period": "2001",
+      "institution": "UFBA",
+      "description": "Oficina de Piano da Universidade Federal da Bahia."
+    },
+    {
+      "id": "nucleo",
+      "period": "2010",
+      "institution": "Núcleo Moderno de Música",
+      "description": "Extensão com o maestro Bira (Ubiratan) Marques."
+    },
+    {
+      "id": "ucsal",
+      "period": "Em curso",
+      "institution": "UCSal",
+      "description": "Licenciatura em Música pela Universidade Católica do Salvador."
+    },
+    {
+      "id": "unicesumar",
+      "period": "Formação",
+      "institution": "UniCesumar",
+      "description": "Produção musical."
+    }
+  ],
+  "projects": [
+    {
+      "id": "plus",
+      "name": "PLUS+",
+      "role": "Sócio proprietário desde 2011",
+      "description": "Produtora onde atua como produtor e arranjador, assinando trabalhos para artistas e projetos de diferentes gêneros."
+    },
+    {
+      "id": "3h3ads",
+      "name": "3h3ads Keys",
+      "role": "Sócio-fundador",
+      "description": "Projeto musical (ThreeHeads) centrado em teclados, synths e programação."
+    },
+    {
+      "id": "tecladismo",
+      "name": "Tecladismo Brasil",
+      "role": "Idealizador e CEO",
+      "description": "Comunidade #tecladismo de profissionais de teclado para troca de informação sobre instrumento, software e carreira."
+    }
+  ],
+  "endorsement": {
+    "brand": "Stay Music",
+    "description": "Endorsee da marca brasileira de teclados e acessórios para músicos profissionais."
+  },
+  "contact": {
+    "email": "contato@fabinhoscooby.com",
+    "whatsapp": "5571991649370",
+    "whatsappMessage": "Olá, Fabinho! Vim pelo site e gostaria de falar sobre um projeto."
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/fabinhoscooby",
+    "spotify": "https://open.spotify.com/artist/fabinhoscooby"
+  },
+  "pressPhoto": {
+    "src": "/images/fabinho-scooby.png",
+    "alt": "Retrato de Fabinho Scooby em silhueta preto e branco, de perfil, com dreads e óculos",
+    "download": "/images/fabinho-scooby.png"
+  },
+  "featuredVideo": {
+    "youtubeId": "",
+    "title": "Jammil de Todas as Praias — DVD ao vivo",
+    "caption": "Fabinho Scooby nos teclados no DVD ao vivo do Jammil e Uma Noites."
+  }
+}

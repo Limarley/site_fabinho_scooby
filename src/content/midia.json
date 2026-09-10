@@ -1,0 +1,12 @@
+[
+  { "id": "faustao", "name": "Domingão do Faustão", "kind": "tv", "network": "Globo" },
+  { "id": "xuxa", "name": "Xuxa", "kind": "tv" },
+  { "id": "bbb", "name": "BBB", "kind": "tv", "network": "Globo" },
+  { "id": "multishow", "name": "Multishow", "kind": "outlet" },
+  { "id": "huck", "name": "Caldeirão do Huck", "kind": "tv", "network": "Globo" },
+  { "id": "anamaria", "name": "Ana Maria Braga", "kind": "tv", "network": "Globo" },
+  { "id": "fatima", "name": "Fátima Bernardes", "kind": "tv", "network": "Globo" },
+  { "id": "record", "name": "Record", "kind": "outlet" },
+  { "id": "band", "name": "Band", "kind": "outlet" },
+  { "id": "sbt", "name": "SBT", "kind": "outlet" }
+]

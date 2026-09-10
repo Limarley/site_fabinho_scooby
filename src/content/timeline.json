@@ -1,0 +1,46 @@
+[
+  {
+    "id": "1999",
+    "period": "1999",
+    "title": "Início da carreira profissional",
+    "description": "Começa a atuar como sideman e freelancer no mercado baiano e nordestino, tocando de arrocha a zouk."
+  },
+  {
+    "id": "2001",
+    "period": "2001",
+    "title": "Oficina de Piano da UFBA",
+    "description": "Primeira formação formal, somando técnica à experiência de quem aprendeu de ouvido."
+  },
+  {
+    "id": "2010",
+    "period": "2010",
+    "title": "Núcleo Moderno de Música",
+    "description": "Extensão com o maestro Bira Marques, aprofundando harmonia, arranjo e direção musical."
+  },
+  {
+    "id": "2011",
+    "period": "2011",
+    "title": "Jammil e Uma Noites e PLUS+",
+    "description": "Assume os teclados do Jammil e Uma Noites e se torna sócio proprietário da produtora PLUS+.",
+    "featured": true
+  },
+  {
+    "id": "dvd",
+    "period": "2014–2015",
+    "title": "DVD \"Jammil de Todas as Praias\"",
+    "description": "Gravação ao vivo com crédito de teclados. No mesmo período, assina a composição \"Resenha Do Dread\"."
+  },
+  {
+    "id": "grammy",
+    "period": "Latin Grammy",
+    "title": "Indicação ao Latin Grammy",
+    "description": "Reconhecimento internacional pelo trabalho ao lado de grandes nomes da música brasileira.",
+    "featured": true
+  },
+  {
+    "id": "30praum",
+    "period": "Atualmente",
+    "title": "30PRAUM",
+    "description": "Tecladista do 30PRAUM, além de arranjos e produções com ATTØØXXA e Carlinhos Brown."
+  }
+]
