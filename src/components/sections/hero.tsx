@@ -20,7 +20,7 @@ export function Hero() {
   return (
     <section className="pt-20 sm:pt-24" aria-labelledby="hero-title">
       <div className="container-site">
-        <div className="frame relative h-[580px] overflow-hidden bg-background animate-fade-up sm:h-[660px] lg:h-[clamp(640px,calc(100svh-8.5rem),880px)]">
+        <div className="frame relative isolate h-[580px] overflow-hidden bg-background animate-fade-up sm:h-[660px] lg:h-[clamp(640px,calc(100svh-8.5rem),880px)]">
           {/* Coluna da foto: fundo branco com bordas desvanecendo para o creme.
               No mobile começa abaixo do título para não competir com o nome. */}
           <div
@@ -54,10 +54,11 @@ export function Hero() {
             </ul>
           </div>
 
-          {/* Nome gigante sobreposto à foto */}
+          {/* Nome gigante sobreposto à foto. Texto branco com mix-blend "difference":
+              fica preto sobre o fundo claro e em negativo (branco) sobre a silhueta. */}
           <h1
             id="hero-title"
-            className="heading-display absolute inset-x-0 top-[17%] px-4 text-center text-[clamp(2.75rem,12.5vw,9.75rem)] sm:top-[15%]"
+            className="heading-display absolute inset-x-0 top-[17%] px-4 text-center text-[clamp(2.75rem,12.5vw,9.75rem)] text-white mix-blend-difference sm:top-[15%]"
           >
             Fabinho Scooby
           </h1>
