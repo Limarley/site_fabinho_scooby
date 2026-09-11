@@ -67,17 +67,37 @@ export function HomeTrabalho() {
         <div className="mt-12">
           <p className="eyebrow mb-4">Créditos</p>
           <ul className="grid gap-3 sm:grid-cols-2">
-            {creditos.map((c) => (
-              <li
-                key={c.id}
-                className="rounded-2xl border border-border bg-background px-5 py-4 text-sm"
-              >
-                <span className="font-display font-bold">{c.artist}</span>
-                {" — "}
-                &ldquo;{c.work}&rdquo;{" "}
-                <span className="text-muted">({c.role})</span>
-              </li>
-            ))}
+            {creditos.map((c) => {
+              const body = (
+                <>
+                  <span className="font-display font-bold">{c.artist}</span>
+                  {" — "}
+                  &ldquo;{c.work}&rdquo;{" "}
+                  <span className="text-muted">({c.role})</span>
+                </>
+              );
+              const className =
+                "block rounded-2xl border border-border bg-background px-5 py-4 text-sm transition-colors";
+              return (
+                <li key={c.id}>
+                  {c.spotify ? (
+                    <a
+                      href={c.spotify}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`${className} group hover:border-accent`}
+                    >
+                      {body}
+                      <span className="mt-2 block text-xs font-semibold text-muted group-hover:text-accent">
+                        Ouvir no Spotify
+                      </span>
+                    </a>
+                  ) : (
+                    <div className={className}>{body}</div>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
 

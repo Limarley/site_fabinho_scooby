@@ -81,6 +81,8 @@ export type Credit = {
   work: string;
   role: string;
   year?: string;
+  /** Link da faixa no Spotify, quando houver. */
+  spotify?: string;
 };
 
 export type MediaAppearance = {

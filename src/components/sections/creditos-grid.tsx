@@ -67,7 +67,20 @@ export function CreditosGrid({ items }: Props) {
             <div className="min-w-0">
               <p className="text-xs uppercase tracking-[0.18em] text-muted">{c.artist}</p>
               <h3 className="mt-1 font-display text-xl font-bold leading-snug">
-                &ldquo;{c.work}&rdquo;
+                {c.spotify ? (
+                  <a
+                    href={c.spotify}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-accent"
+                  >
+                    &ldquo;{c.work}&rdquo;
+                  </a>
+                ) : (
+                  <>
+                    &ldquo;{c.work}&rdquo;
+                  </>
+                )}
               </h3>
               <p className="mt-2 text-sm text-accent">
                 {c.role}

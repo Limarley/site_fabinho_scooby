@@ -3,7 +3,8 @@
     "id": "jammil-resenha",
     "artist": "Jammil e Uma Noites",
     "work": "Resenha Do Dread",
-    "role": "Composição"
+    "role": "Composição",
+    "spotify": "https://open.spotify.com/track/2pSN5picBQSMhxtkynNYe2"
   },
   {
     "id": "attooxxa-groove",
@@ -15,12 +16,22 @@
     "id": "attooxxa-favela",
     "artist": "ATTØØXXA / Carlinhos Brown",
     "work": "Da Favela Pro Asfalto",
-    "role": "Arranjo"
+    "role": "Arranjo",
+    "spotify": "https://open.spotify.com/track/4zXCNJjfSRR0VgnzuNVR3C"
   },
   {
     "id": "attooxxa-sai",
     "artist": "ATTØØXXA",
     "work": "Sai da Frente",
-    "role": "Teclado, synth e arranjo"
+    "role": "Teclado, synth e arranjo",
+    "spotify": "https://open.spotify.com/track/7wGnTtXw2ZWMcFLDnA5lvR"
+  },
+  {
+    "id": "matue-333",
+    "artist": "Matuê",
+    "work": "333",
+    "role": "Teclados (30PRAUM)",
+    "year": "2024",
+    "spotify": "https://open.spotify.com/track/7zILDYgo1dImCU8fcYuBdj"
   }
 ]

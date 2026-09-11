@@ -25,7 +25,7 @@ export function Footer() {
       </div>
       <div className="hairline">
         <div className="container-site py-5 text-xs text-muted">
-          © {year} {site.fullName}
+          © {year} {site.name}
         </div>
       </div>
     </footer>
