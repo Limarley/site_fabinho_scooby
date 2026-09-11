@@ -5,8 +5,8 @@ import { cn } from "@/lib/utils";
 export function Brand({ className, size = "md" }: { className?: string; size?: "md" | "lg" }) {
   return (
     <Link
-      href="/"
-      aria-label="Fabinho Scooby — página inicial"
+      href="/#home"
+      aria-label="Fabinho Scooby — início"
       className={cn(
         "inline-flex items-center gap-2.5 font-semibold tracking-tight",
         size === "lg" ? "text-lg" : "text-sm sm:text-base",

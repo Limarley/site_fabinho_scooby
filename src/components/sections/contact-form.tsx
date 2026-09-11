@@ -9,14 +9,19 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { NativeSelect } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { contactSchema, projectTypes, type ContactInput } from "@/lib/validations";
+import { contactSchema, projectTypes, type ContactInput, type ProjectType } from "@/lib/validations";
 import { cn } from "@/lib/utils";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-export function ContactForm() {
+function isProjectType(value: string | undefined): value is ProjectType {
+  return projectTypes.some((p) => p.value === value);
+}
+
+export function ContactForm({ defaultProjectType }: { defaultProjectType?: string }) {
   const [status, setStatus] = useState<Status>("idle");
   const [serverError, setServerError] = useState<string | null>(null);
+  const initialType = isProjectType(defaultProjectType) ? defaultProjectType : undefined;
 
   const {
     register,
@@ -25,7 +30,13 @@ export function ContactForm() {
     formState: { errors },
   } = useForm<ContactInput>({
     resolver: zodResolver(contactSchema),
-    defaultValues: { name: "", email: "", message: "", website: "" },
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+      website: "",
+      ...(initialType ? { projectType: initialType } : {}),
+    },
   });
 
   const onSubmit = async (values: ContactInput) => {
@@ -110,7 +121,7 @@ export function ContactForm() {
         <Label htmlFor="projectType">Tipo de projeto</Label>
         <NativeSelect
           id="projectType"
-          defaultValue=""
+          defaultValue={initialType ?? ""}
           {...field("projectType")}
           {...register("projectType")}
         >

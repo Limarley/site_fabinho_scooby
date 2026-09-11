@@ -4,6 +4,7 @@ export const projectTypes = [
   { value: "booking", label: "Show / booking" },
   { value: "direcao", label: "Direção musical" },
   { value: "producao", label: "Produção / arranjo" },
+  { value: "tecladismo", label: "Aula / #TECLADISMO" },
   { value: "parceria", label: "Parceria / endorsement" },
   { value: "imprensa", label: "Imprensa" },
   { value: "outro", label: "Outro" },

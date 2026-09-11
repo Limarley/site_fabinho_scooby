@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/hero";
-import { Destaques } from "@/components/sections/destaques";
-import { TeaserBio } from "@/components/sections/teaser-bio";
-import { TeaserProjetos } from "@/components/sections/teaser-projetos";
-import { MediaEmbed } from "@/components/sections/media-embed";
-import { CtaContato } from "@/components/sections/cta-contato";
+import { HomeQuem } from "@/components/sections/home-quem";
+import { HomeTrabalho } from "@/components/sections/home-trabalho";
+import { Contato } from "@/components/sections/contato";
+import { JsonLd, performingGroupsJsonLd } from "@/components/seo/json-ld";
 import { site } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -13,15 +12,20 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-export default function HomePage() {
+export default async function HomePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ tipo?: string }>;
+}) {
+  const { tipo } = await searchParams;
+
   return (
     <>
       <Hero />
-      <Destaques />
-      <TeaserBio />
-      <MediaEmbed />
-      <TeaserProjetos />
-      <CtaContato />
+      <HomeQuem />
+      <HomeTrabalho />
+      <Contato defaultProjectType={tipo} />
+      <JsonLd data={performingGroupsJsonLd()} />
     </>
   );
 }

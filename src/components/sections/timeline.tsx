@@ -12,12 +12,7 @@ type Props = { items: TimelineItem[] };
  * Em telas pequenas vira uma lista vertical com todos os marcos expandidos.
  */
 export function Timeline({ items }: Props) {
-  const [active, setActive] = useState(() =>
-    Math.max(
-      0,
-      items.findIndex((i) => i.featured),
-    ),
-  );
+  const [active, setActive] = useState(0);
   const reduce = useReducedMotion();
   const current = items[active] ?? items[0];
 

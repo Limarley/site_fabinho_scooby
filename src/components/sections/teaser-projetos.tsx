@@ -18,7 +18,7 @@ export function TeaserProjetos() {
           <li key={p.id} className="group h-full">
             <Reveal delay={i * 0.08} className="h-full">
               <Link
-                href={`/sobre#${p.id}`}
+                href={`/bio#${p.id}`}
                 className="flex h-full flex-col justify-between rounded-2xl border border-border bg-surface/60 p-6 transition-colors hover:border-accent"
               >
                 <div>

@@ -1,14 +1,13 @@
 import Image from "next/image";
-import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SocialLinks } from "@/components/layout/social-links";
 import { site } from "@/lib/content";
 
 const frameLinks = [
-  { href: "/sobre", label: "Sobre" },
-  { href: "/bio", label: "Trajetória" },
-  { href: "/contato", label: "Contato" },
+  { href: "#portfolio", label: "Portfólio" },
+  { href: "#bio", label: "Bio" },
+  { href: "#contato", label: "Contato" },
 ];
 
 /**
@@ -18,7 +17,7 @@ const frameLinks = [
  */
 export function Hero() {
   return (
-    <section className="pt-20 sm:pt-24" aria-labelledby="hero-title">
+    <section id="home" className="scroll-mt-20 pt-20 sm:pt-24" aria-labelledby="hero-title">
       <div className="container-site">
         <div className="frame relative isolate h-[580px] overflow-hidden bg-background animate-fade-up sm:h-[660px] lg:h-[clamp(640px,calc(100svh-8.5rem),880px)]">
           {/* Coluna da foto: fundo branco com bordas desvanecendo para o creme.
@@ -43,12 +42,12 @@ export function Hero() {
             <ul className="hidden items-center gap-8 md:flex">
               {frameLinks.map((l) => (
                 <li key={l.href}>
-                  <Link
+                  <a
                     href={l.href}
                     className="text-foreground/80 transition-colors hover:text-ink"
                   >
                     {l.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -68,8 +67,8 @@ export function Hero() {
             <SocialLinks variant="solid" direction="col" />
           </div>
 
-          {/* Funções: canto inferior direito */}
-          <p className="heading-display absolute bottom-5 right-5 max-w-[60%] text-right text-2xl leading-[1.05] max-lg:rounded-xl max-lg:bg-background/85 max-lg:px-3 max-lg:py-2 max-lg:backdrop-blur-sm sm:bottom-8 sm:right-8 sm:text-4xl lg:text-5xl">
+          {/* Funções: canto inferior direito. Mesmo negativo do nome (mix-blend difference). */}
+          <p className="heading-display absolute bottom-5 right-5 max-w-[60%] text-right text-2xl leading-[1.05] text-white mix-blend-difference sm:bottom-8 sm:right-8 sm:text-4xl lg:text-5xl">
             {site.roles.map((r) => (
               <span key={r} className="block">
                 {r}
@@ -82,16 +81,23 @@ export function Hero() {
 
         {/* Sub-hero: descrição e chamadas */}
         <div className="grid gap-6 py-8 sm:py-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-          <p className="max-w-2xl text-lg text-muted sm:text-xl">{site.heroDescription}</p>
+          <div>
+            <p className="eyebrow mb-3">#TECLADISMO</p>
+            <p className="max-w-2xl text-lg text-muted sm:text-xl">{site.heroDescription}</p>
+            <p className="mt-3 max-w-2xl text-sm text-muted">{site.tagline}</p>
+            <p className="mt-4 text-xs uppercase tracking-[0.18em] text-muted">
+              {site.highlights.map((h) => h.value).join(" · ")}
+            </p>
+          </div>
           <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
             <Button asChild size="lg">
-              <Link href="/contato">
-                Fale com o Fabinho
+              <a href="#contato">
+                Começar agora
                 <ArrowRight />
-              </Link>
+              </a>
             </Button>
             <Button asChild size="lg" variant="outline">
-              <Link href="/bio">Conheça a trajetória</Link>
+              <a href="#bio">Quem é o Scooby</a>
             </Button>
           </div>
         </div>

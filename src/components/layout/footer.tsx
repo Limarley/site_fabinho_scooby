@@ -1,38 +1,19 @@
-import Link from "next/link";
-import { navLinks, site } from "@/lib/content";
+import { site } from "@/lib/content";
 import { SocialLinks } from "./social-links";
 import { Brand } from "./brand";
 
 export function Footer() {
   const year = new Date().getFullYear();
   return (
-    <footer className="hairline mt-24">
-      <div className="container-site flex flex-col gap-10 py-12 md:flex-row md:items-start md:justify-between">
-        <div className="max-w-sm">
-          <Brand size="lg" />
-          <p className="mt-3 text-sm text-muted">
-            {site.roles.join(" · ")}
-            <br />
-            {site.location}
+    <footer className="hairline bg-background">
+      <div className="container-site flex flex-col gap-6 py-8 sm:flex-row sm:items-center sm:justify-between">
+        <div>
+          <Brand />
+          <p className="mt-2 text-sm text-muted">
+            {site.location} · #TECLADISMO
           </p>
         </div>
-
-        <nav aria-label="Rodapé">
-          <ul className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-muted transition-colors hover:text-foreground"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 sm:items-end">
           <a
             href={`mailto:${site.contact.email}`}
             className="text-sm text-muted transition-colors hover:text-ink"
@@ -43,11 +24,8 @@ export function Footer() {
         </div>
       </div>
       <div className="hairline">
-        <div className="container-site flex flex-col gap-2 py-6 text-xs text-muted sm:flex-row sm:justify-between">
-          <p>
-            © {year} {site.fullName}. Todos os direitos reservados.
-          </p>
-          <p>Salvador · Bahia · Brasil</p>
+        <div className="container-site py-5 text-xs text-muted">
+          © {year} {site.fullName}
         </div>
       </div>
     </footer>

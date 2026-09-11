@@ -23,7 +23,7 @@ export function TeaserBio() {
             lado de nomes como ATTØØXXA e Carlinhos Brown.
           </p>
           <Button asChild variant="link" className="mt-6 text-base">
-            <Link href="/bio">
+            <Link href="/#bio">
               Conheça a bio completa
               <ArrowRight />
             </Link>

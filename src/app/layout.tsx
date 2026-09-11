@@ -3,6 +3,7 @@ import { Inter, Inter_Tight } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { HashScroll } from "@/components/layout/hash-scroll";
 import { JsonLd, personJsonLd } from "@/components/seo/json-ld";
 import { site } from "@/lib/content";
 import { siteUrl } from "@/lib/seo";
@@ -80,6 +81,7 @@ export default function RootLayout({
           Pular para o conteúdo
         </a>
         <Navbar />
+        <HashScroll />
         <main id="conteudo" className="flex-1">
           {children}
         </main>

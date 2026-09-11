@@ -17,6 +17,16 @@
     "Nascido no Carnaval de 1980, em Salvador, Fabinho começou de ouvido, observando. Sem professor, sem partitura: só a vontade de tocar o que escutava.",
     "A base continua sendo a Bahia. É dali que saem as turnês, as produções e a comunidade de tecladistas que ele lidera hoje."
   ],
+  "homeQuem": {
+    "eyebrow": "Quem é o Scooby",
+    "title": "A Bahia é o Mundo.",
+    "paragraphs": [
+      "Nascido no Carnaval de 1980, em Salvador. Começou de ouvido, observando. Sem professor, sem partitura: só a vontade de tocar o que escutava.",
+      "Hoje no palco com 30PRAUM, WIU e Teto. Tecladista, diretor musical e produtor — de Salvador para o mundo, com indicação ao Latin Grammy.",
+      "O #TECLADISMO nasceu daí: ensinar e conectar quem vive de teclado — instrumento, harmonia, groove, produção e carreira.",
+      "A base continua sendo a Bahia. É dali que saem as turnês, as produções e o ensino."
+    ]
+  },
   "highlights": [
     { "id": "grammy", "value": "Latin Grammy", "label": "Indicado" },
     { "id": "anos", "value": "25+", "label": "Anos de carreira" },
@@ -72,7 +82,30 @@
       "id": "tecladismo",
       "name": "Tecladismo Brasil",
       "role": "Idealizador e CEO",
-      "description": "Comunidade #tecladismo de profissionais de teclado para troca de informação sobre instrumento, software e carreira."
+      "description": "Comunidade #TECLADISMO de profissionais de teclado para troca de informação sobre instrumento, software e carreira."
+    }
+  ],
+  "offers": [
+    {
+      "id": "palco",
+      "name": "Palco e direção",
+      "topics": ["Shows", "Turnês", "Direção musical"],
+      "description": "Teclados e direção musical em cima do palco — Jammil e Uma Noites, 30PRAUM e turnês pelo Brasil, Estados Unidos, Europa e Oceania.",
+      "href": "/#contato"
+    },
+    {
+      "id": "producao",
+      "name": "Produção PLUS+",
+      "topics": ["Arranjo", "Beat making", "Estúdio"],
+      "description": "Sócio da PLUS+ desde 2011. Produção e arranjo para artistas e marcas — créditos com ATTØØXXA e Carlinhos Brown.",
+      "href": "/?tipo=producao#contato"
+    },
+    {
+      "id": "tecladismo",
+      "name": "#TECLADISMO",
+      "topics": ["Teclado", "Harmonia", "Groove", "Produção"],
+      "description": "Aulas e comunidade no Tecladismo Brasil: instrumento, software e carreira — sem catálogo inventado, o convite é direto.",
+      "href": "/?tipo=tecladismo#contato"
     }
   ],
   "endorsement": {
@@ -85,13 +118,12 @@
     "whatsappMessage": "Olá, Fabinho! Vim pelo site e gostaria de falar sobre um projeto."
   },
   "social": {
-    "instagram": "https://www.instagram.com/fabinhoscooby",
+    "instagram": "https://www.instagram.com/fabinhoscooby/",
     "spotify": "https://open.spotify.com/artist/fabinhoscooby"
   },
   "pressPhoto": {
     "src": "/images/fabinho-scooby.png",
-    "alt": "Retrato de Fabinho Scooby em silhueta preto e branco, de perfil, com dreads e óculos",
-    "download": "/images/fabinho-scooby.png"
+    "alt": "Retrato de Fabinho Scooby em silhueta preto e branco, de perfil, com dreads e óculos"
   },
   "featuredVideo": {
     "youtubeId": "gTHpYZz1dpE",

@@ -1,6 +1,4 @@
 import Image from "next/image";
-import { Download } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { CopyButton } from "@/components/ui/copy-button";
 import { Reveal } from "@/components/ui/reveal";
 import { creditos, site } from "@/lib/content";
@@ -29,20 +27,12 @@ export function PressKit() {
               className="object-cover"
             />
           </div>
-          <figcaption className="flex flex-col gap-4 p-6">
-            <div>
-              <p className="font-display text-lg font-bold">Foto oficial</p>
-              <p className="mt-1 text-sm text-muted">
-                Retrato em preto e branco (960 × 1280 px). Uso livre para imprensa e divulgação
-                de eventos com crédito &ldquo;Divulgação&rdquo;.
-              </p>
-            </div>
-            <Button asChild variant="outline" className="self-start">
-              <a href={site.pressPhoto.download} download="fabinho-scooby-foto-oficial.png">
-                <Download />
-                Baixar foto oficial (PNG)
-              </a>
-            </Button>
+          <figcaption className="p-6">
+            <p className="font-display text-lg font-bold">Foto oficial</p>
+            <p className="mt-1 text-sm text-muted">
+              Retrato em preto e branco. Uso para imprensa e divulgação de eventos com crédito
+              &ldquo;Divulgação&rdquo;.
+            </p>
           </figcaption>
         </figure>
       </Reveal>

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "30praum",
+    "name": "30PRAUM",
+    "role": "Tecladista",
+    "description": "Teclados no selo e nos palcos da 30PRAUM, o presente da carreira."
+  },
+  {
+    "id": "wiu",
+    "name": "WIU",
+    "role": "Palco",
+    "description": "Nos palcos de agora, ao lado de WIU."
+  },
+  {
+    "id": "teto",
+    "name": "Teto",
+    "role": "Palco",
+    "description": "Nos palcos de agora, ao lado de Teto."
+  }
+]

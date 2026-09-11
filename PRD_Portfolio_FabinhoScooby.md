@@ -30,8 +30,8 @@ O site oficial é a iniciativa guarda-chuva sob a qual este produto é construí
 | **Fortalecer presença digital** | Ter um endereço próprio e profissional (fabinhoscooby.com) que centralize a imagem do artista, reduzindo a dependência de redes sociais de terceiros e de perfis desatualizados | Home (identidade visual forte), SEO técnico, domínio próprio, integração com redes sociais |
 | **Apresentar trajetória artística** | Contar a história profissional de forma clara e cronológica: de sideman autodidata a diretor musical indicado ao Latin Grammy | Página **Bio** (timeline, formação, marcos de carreira) |
 | **Divulgar trabalhos** | Dar visibilidade a créditos, parcerias e produções já realizadas, reforçando autoridade e credibilidade | Página **Bio** (créditos/discografia com Jammil, ATTØØXXA/Carlinhos Brown), grid de mídia/TV |
-| **Centralizar músicas e projetos** | Reunir num só lugar os projetos em que Fabinho atua ou é sócio/fundador, hoje espalhados entre bandas, produtora e comunidade | Página **Sobre** (PLUS+, 3h3ads Keys, Tecladismo Brasil), embeds de áudio/vídeo na Home/Bio |
-| **Disponibilizar material para imprensa** | Fornecer, num único ponto, informações e ativos prontos para uso por veículos de imprensa, curadores e organizadores de eventos | Kit de imprensa (bio resumida, bio longa, foto em alta resolução, créditos) acessível a partir de Sobre/Bio; contato dedicado |
+| **Centralizar músicas e projetos** | Reunir num só lugar os projetos em que Fabinho atua ou é sócio/fundador, hoje espalhados entre bandas, produtora e comunidade | Página **Bio** (PLUS+, 3h3ads Keys, Tecladismo Brasil) e **Portfólio** (`/portfolio`: shows, 333, estúdio, Instagram); embeds na Home |
+| **Disponibilizar material para imprensa** | Fornecer, num único ponto, informações e ativos prontos para uso por veículos de imprensa, curadores e organizadores de eventos | Kit de imprensa (bio resumida, bio longa, foto em alta resolução, créditos) na **Bio**; contato dedicado |
 | **Facilitar contatos profissionais** | Reduzir fricção para bookings, propostas de produção e parcerias comerciais chegarem até Fabinho | Página **Contato** (formulário + e-mail direto + LinkedIn), CTAs de contato nas demais páginas |
 
 ### 1.2 Contexto
@@ -78,40 +78,43 @@ O site é organizado em **4 páginas principais**, navegáveis a partir de uma n
 | # | Página | Rota | Propósito |
 |---|---|---|---|
 | 1 | **Home** | `/` | Primeira impressão: hero de impacto, apresentação rápida e ganchos para as demais páginas |
-| 2 | **Bio** | `/bio` | Narrativa completa da trajetória: linha do tempo, créditos/discografia e mídia/TV |
-| 3 | **Sobre** | `/sobre` | Quem é Fabinho fora dos palcos: formação, atuação, projetos próprios e valores |
+| 2 | **Bio** | `/bio` | Presente primeiro (Agora, produtor), identidade, projetos, kit de imprensa, timeline decrescente, créditos e mídia/TV |
+| 3 | **Portfólio** | `/portfolio` | Trabalho visual: destaque 333 (clipe + making of), galeria com filtros (Tudo · Shows · 333 · Estúdio · Instagram) e lightbox |
 | 4 | **Contato** | `/contato` | Canal direto para bookings, produções e parcerias |
+
+Redirect permanente **308** de `/sobre` para `/portfolio`. Âncoras antigas de projetos (`/sobre#plus` etc.) passam a viver em `/bio#plus`.
 
 #### Página 1 — Home
 | Seção | Descrição |
 |---|---|
-| **Navbar** | Logo/assinatura, links: Home, Bio, Sobre, Contato, CTA "Contato" |
+| **Navbar** | Logo/assinatura, links: Home, Bio, Portfólio, Contato, CTA "Contato" |
 | **Hero** | Nome em tipografia de destaque, atuação (Tecladista · Diretor Musical · Produtor), foto autoral, ícones sociais |
 | **Destaques rápidos** | 3–4 números/marcos de prova social (ex: indicação ao Latin Grammy, anos de carreira, bandas, turnês internacionais) |
 | **Chamada para Bio** | Teaser da trajetória com link "Conheça a bio completa" |
-| **Chamada para projetos próprios** | Menções rápidas a PLUS+, 3h3ads Keys e Tecladismo Brasil, com link para Sobre |
+| **Chamada para projetos próprios** | Menções rápidas a PLUS+, 3h3ads Keys e Tecladismo Brasil, com link para `/bio#projeto` |
 | **CTA de Contato** | Bloco final convidando para contato, com link para `/contato` |
 | **Footer** | Copyright, links rápidos, redes |
 
 #### Página 2 — Bio
 | Seção | Descrição |
 |---|---|
-| **Cabeçalho da página** | Título "Bio" + resumo em uma frase |
-| **Trajetória / Timeline** | Linha do tempo com marcos: início em 1999, UFBA (2001), Núcleo Moderno (2010), Jammil e Uma Noites (2011–), DVD "Jammil de Todas as Praias", indicação ao Latin Grammy, 30PRAUM |
+| **Cabeçalho da página** | Título "Bio" + resumo liderado pelo presente |
+| **Agora** | Cards de 30PRAUM, WIU e Teto, com a função exercida em cada um |
+| **Produtor musical** | Seção dedicada + CTA próprio para `/contato?tipo=producao` |
+| **Quem é / Formação / Atuação** | Texto institucional migrado do antigo Sobre |
+| **Projetos próprios** | PLUS+, 3h3ads Keys, Tecladismo Brasil, endorsement Stay Music |
+| **Kit de imprensa** | Bio curta/longa copiáveis, foto oficial, créditos |
+| **Trajetória / Timeline** | Ordem **decrescente** (presente → 1999): 30PRAUM, Latin Grammy, DVD, Jammil, Núcleo, UFBA, início |
 | **Créditos / Discografia** | Cards com trabalhos: Jammil ("Resenha Do Dread" — composição), ATTØØXXA ("Groove", "Da Favela Pro Asfalto" com Carlinhos Brown — arranjo; "Sai da Frente" — teclado/synth/arranjo) |
-| **Mídia / TV** | Grid de aparições: Domingão do Faustão, Xuxa, BBB, Multishow, Caldeirão do Huck, Ana Maria Braga, Fátima Bernardes, Record, Band, SBT |
+| **Mídia / TV** | Prova social histórica (não manchete): Domingão do Faustão, Xuxa, BBB, Multishow, Caldeirão do Huck, Ana Maria Braga, Fátima Bernardes, Record, Band, SBT |
 | **CTA de Contato** | Encerramento da página convidando para `/contato` |
 
-#### Página 3 — Sobre
+#### Página 3 — Portfólio
 | Seção | Descrição |
 |---|---|
-| **Cabeçalho da página** | Título "Sobre" + descrição resumida (bio curta institucional) |
-| **Quem é** | Texto pessoal: nascido no Carnaval de 1980, autodidata, base em Salvador |
-| **Formação** | UFBA (Oficina de Piano, 2001), Núcleo Moderno de Música com o maestro Bira Marques (2010), Licenciatura em Música pela UCSal, produção musical pela UniCesumar |
-| **Atuação** | Tecladista, diretor musical, produtor musical, arranjador, programador, beat maker e educador musical |
-| **Projetos próprios** | PLUS+ (produtora, sócio desde 2011), 3h3ads (ThreeHeads) Keys, Tecladismo Brasil / #tecladismo (comunidade) |
-| **Endorsement** | Stay Music |
-| **Kit de imprensa** | Bloco com bio curta e bio longa em texto pronto para copiar, foto oficial em alta resolução para download e lista de créditos — atende diretamente ao objetivo "Disponibilizar material para imprensa" |
+| **Cabeçalho da página** | Título "Portfólio" + descrição da galeria |
+| **Destaque 333** | Clipe e vídeos de making of (YouTube facade) |
+| **Galeria** | Filtros Tudo · Shows · 333 · Estúdio · Instagram; lightbox acessível |
 | **CTA de Contato** | Encerramento convidando para `/contato` |
 
 #### Página 4 — Contato
@@ -126,13 +129,16 @@ O site é organizado em **4 páginas principais**, navegáveis a partir de uma n
 
 - [ ] Navbar fixa com as 4 páginas, com indicação visual da página ativa
 - [ ] Navegação suave dentro de cada página (scroll/transições entre seções internas)
-- [ ] Linha do tempo interativa na página Bio
+- [ ] Seção Agora (30PRAUM, WIU, Teto) e produtor com CTA próprio na Bio
+- [ ] Linha do tempo interativa na Bio, em ordem decrescente (presente → 1999)
 - [ ] Galeria/grid de créditos e discografia na página Bio, com filtro por artista/projeto (opcional)
-- [ ] Grid de logos/aparições em TV e mídia na página Bio
-- [ ] Seção dedicada a projetos próprios (PLUS+, 3h3ads Keys, Tecladismo Brasil) na página Sobre
+- [ ] Grid de logos/aparições em TV e mídia na Bio, como prova social histórica
+- [ ] Seção dedicada a projetos próprios (PLUS+, 3h3ads Keys, Tecladismo Brasil) na Bio
 - [ ] Formulário de contato funcional na página Contato (envio de e-mail via API Route para contato@fabinhoscooby.com)
-- [ ] Player de destaque (embed de vídeo/áudio de trabalhos, ex: DVD do Jammil, YouTube/Spotify embed) na Home ou Bio, centralizando músicas e projetos
-- [ ] Kit de imprensa na página Sobre: bio curta, bio longa, foto em alta resolução para download e créditos em texto pronto para uso
+- [ ] Player de destaque (embed de vídeo/áudio) na Home
+- [ ] Kit de imprensa na Bio: bio curta, bio longa, foto em alta resolução para download e créditos em texto pronto para uso
+- [ ] Portfólio com filtros, lightbox acessível e destaque 333
+- [ ] Redirect 308 de `/sobre` para `/portfolio`
 - [ ] Responsividade total (mobile-first)
 - [ ] Otimização de imagens e vídeos (lazy loading)
 - [ ] SEO técnico (meta tags, Open Graph, sitemap, robots.txt, schema.org Person/MusicGroup) em cada uma das 4 páginas
@@ -280,9 +286,9 @@ src/
 │   ├── layout.tsx
 │   ├── page.tsx                    # 1. Home — Hero + destaques + chamadas
 │   ├── bio/
-│   │   └── page.tsx                 # 2. Bio — Timeline + Créditos + Mídia/TV
-│   ├── sobre/
-│   │   └── page.tsx                 # 3. Sobre — Formação, atuação, projetos próprios
+│   │   └── page.tsx                 # 2. Bio — Agora, produtor, identidade, timeline desc, créditos, mídia
+│   ├── portfolio/
+│   │   └── page.tsx                 # 3. Portfólio — 333 + galeria (308 de /sobre)
 │   ├── contato/
 │   │   └── page.tsx                 # 4. Contato — Formulário + contato direto
 │   └── api/
@@ -293,6 +299,9 @@ src/
 │   ├── sections/                    # Hero, Destaques, Timeline, CreditosGrid, MidiaGrid, ProjetosProprios, ContactForm
 ├── content/
 │   ├── timeline.json                 # Marcos da trajetória (usado na Bio)
+│   ├── agora.json                    # Cards do presente (30PRAUM, WIU, Teto)
+│   ├── producer.json                 # Copy da seção produtor
+│   ├── portfolio.json                # Galeria + IDs do 333
 │   ├── creditos.json                 # Créditos por artista/projeto (usado na Bio)
 │   └── midia.json                    # Aparições em TV/mídia (usado na Bio)
 ├── lib/
@@ -317,9 +326,9 @@ src/
 |---|---|
 | **Fase 1 — Setup** | Configuração do projeto Next.js + TS + Tailwind + shadcn/ui |
 | **Fase 2 — Navbar & Layout Base** | Navbar com as 4 páginas, Footer, identidade visual de Fabinho Scooby |
-| **Fase 3 — Página Home** | Hero, destaques rápidos, chamadas para Bio/Sobre/Contato |
-| **Fase 4 — Página Bio** | Timeline interativa + grid de créditos/discografia + grid de mídia/TV |
-| **Fase 5 — Página Sobre** | Formação, atuação, PLUS+, 3h3ads Keys, Tecladismo Brasil, endorsement Stay Music |
+| **Fase 3 — Página Home** | Hero, destaques rápidos, chamadas para Bio/Portfólio/Contato |
+| **Fase 4 — Página Bio** | Agora + produtor + identidade migrada + timeline decrescente + créditos + mídia/TV |
+| **Fase 5 — Página Portfólio** | Destaque 333, galeria com filtros e lightbox; redirect 308 `/sobre` → `/portfolio` |
 | **Fase 6 — Página Contato** | Formulário funcional + envio para contato@fabinhoscooby.com |
 | **Fase 7 — Conteúdo Dinâmico** | Integração com CMS (se aplicável) para fácil atualização por Fabinho |
 | **Fase 8 — Otimização** | SEO, performance, acessibilidade, analytics nas 4 páginas |
@@ -342,25 +351,31 @@ src/
 ## 9. Critérios de Aceite (v1)
 
 **Geral**
-- [ ] Site com exatamente 4 páginas navegáveis: Home, Bio, Sobre e Contato
+- [ ] Site com exatamente 4 páginas navegáveis: Home, Bio, Portfólio e Contato
 - [ ] Navbar presente nas 4 páginas, com destaque visual da página ativa
 - [ ] Site responsivo em mobile, tablet e desktop
 - [ ] Lighthouse Performance/Acessibilidade/SEO ≥ 90 nas 4 páginas
 - [ ] Deploy funcional em ambiente de produção (Vercel) no domínio fabinhoscooby.com
+- [ ] `/sobre` responde 308 para `/portfolio`
 
 **Home**
 - [ ] Hero comunicando claramente nome, atuação e chamada para contato
 - [ ] Destaques rápidos de prova social (Latin Grammy, bandas, turnês)
-- [ ] Chamadas funcionais para as páginas Bio, Sobre e Contato
+- [ ] Chamadas funcionais para as páginas Bio, Portfólio e Contato
 
 **Bio**
-- [ ] Timeline com no mínimo os marcos: início em 1999, UFBA (2001), Jammil (2011+), DVD, Latin Grammy, 30PRAUM
+- [ ] Seção Agora com 30PRAUM, WIU e Teto
+- [ ] Seção de produtor musical com CTA para contato
+- [ ] Timeline em ordem decrescente, com no mínimo os marcos: 30PRAUM, Latin Grammy, DVD, Jammil (2011+), UFBA (2001), início em 1999
 - [ ] Seção de créditos com pelo menos os 4 trabalhos listados (Jammil + ATTØØXXA)
-- [ ] Grid de aparições em TV/mídia
-
-**Sobre**
+- [ ] Grid de aparições em TV/mídia como arquivo histórico
 - [ ] Texto de formação completo (UFBA, Núcleo Moderno, UCSal, UniCesumar)
-- [ ] Seções de projetos próprios (PLUS+, 3h3ads Keys, Tecladismo Brasil, Stay Music)
+- [ ] Seções de projetos próprios (PLUS+, 3h3ads Keys, Tecladismo Brasil, Stay Music) e kit de imprensa
+
+**Portfólio**
+- [ ] Filtros Tudo · Shows · 333 · Estúdio · Instagram
+- [ ] Lightbox acessível (Esc, setas, foco)
+- [ ] Destaque 333 com clipe e making of
 
 **Contato**
 - [ ] Formulário de contato enviando e-mails com sucesso para contato@fabinhoscooby.com

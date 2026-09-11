@@ -9,15 +9,14 @@ export default function NotFound() {
         Essa página saiu do setlist.
       </h1>
       <p className="mt-6 max-w-md text-muted">
-        O endereço não existe ou foi movido. Volte para a Home ou conheça a
-        trajetória completa na Bio.
+        O endereço não existe ou foi movido. Volte para o início.
       </p>
       <div className="mt-8 flex gap-3">
         <Button asChild>
-          <Link href="/">Voltar para a Home</Link>
+          <Link href="/#home">Voltar para a Home</Link>
         </Button>
         <Button asChild variant="outline">
-          <Link href="/bio">Ver a Bio</Link>
+          <Link href="/#bio">Ver a Bio</Link>
         </Button>
       </div>
     </div>

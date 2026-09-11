@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "@/lib/content";
@@ -9,21 +7,52 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Brand } from "@/components/layout/brand";
 
+type SectionId = (typeof navLinks)[number]["id"];
+
+function sectionFromScroll(): SectionId {
+  const ids = navLinks.map((link) => link.id);
+  const probe = 96;
+  let current: SectionId = ids[0];
+
+  for (const id of ids) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    if (el.getBoundingClientRect().top <= probe) current = id;
+  }
+
+  const scrolledToEnd =
+    window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 48;
+  if (scrolledToEnd) return ids[ids.length - 1];
+  return current;
+}
+
 export function Navbar() {
-  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState<SectionId>(navLinks[0].id);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
+    let frame = 0;
+
+    const update = () => {
+      setScrolled(window.scrollY > 12);
+      setActive(sectionFromScroll());
+    };
+
+    const onScroll = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(update);
+    };
+
+    update();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
-
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
 
   useEffect(() => {
     if (!open) return;
@@ -36,8 +65,7 @@ export function Navbar() {
     };
   }, [open]);
 
-  const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
+  const close = () => setOpen(false);
 
   return (
     <header
@@ -56,25 +84,26 @@ export function Navbar() {
 
         <ul className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => {
-            const active = isActive(link.href);
+            const isActive = active === link.id;
             return (
-              <li key={link.href}>
-                <Link
+              <li key={link.id}>
+                <a
                   href={link.href}
-                  aria-current={active ? "page" : undefined}
+                  aria-current={isActive ? "true" : undefined}
+                  onClick={() => setActive(link.id)}
                   className={cn(
                     "relative rounded-full px-4 py-2 text-sm font-medium transition-colors hover:text-foreground",
-                    active ? "text-foreground" : "text-muted",
+                    isActive ? "text-foreground" : "text-muted",
                   )}
                 >
                   {link.label}
-                  {active && (
+                  {isActive && (
                     <span
                       aria-hidden="true"
                       className="absolute inset-x-4 -bottom-0.5 h-0.5 rounded-full bg-ink"
                     />
                   )}
-                </Link>
+                </a>
               </li>
             );
           })}
@@ -82,7 +111,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <Button asChild size="sm" className="hidden md:inline-flex">
-            <Link href="/contato">Contato</Link>
+            <a href="#contato">Contato</a>
           </Button>
           <button
             type="button"
@@ -104,25 +133,28 @@ export function Navbar() {
       >
         <ul className="container-site flex flex-col py-4">
           {navLinks.map((link) => {
-            const active = isActive(link.href);
+            const isActive = active === link.id;
             return (
-              <li key={link.href}>
-                <Link
+              <li key={link.id}>
+                <a
                   href={link.href}
-                  aria-current={active ? "page" : undefined}
+                  aria-current={isActive ? "true" : undefined}
+                  onClick={close}
                   className={cn(
                     "flex items-center justify-between py-4 text-2xl heading-display border-b border-border/60",
-                    active ? "text-ink" : "text-muted",
+                    isActive ? "text-ink" : "text-muted",
                   )}
                 >
                   {link.label}
-                </Link>
+                </a>
               </li>
             );
           })}
           <li className="pt-5">
             <Button asChild size="lg" className="w-full">
-              <Link href="/contato">Fale com o Fabinho</Link>
+              <a href="#contato" onClick={close}>
+                Fale com o Fabinho
+              </a>
             </Button>
           </li>
         </ul>
