@@ -7,7 +7,7 @@ import { JsonLd, performingGroupsJsonLd } from "@/components/seo/json-ld";
 import { site } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: `${site.name} — ${site.roles.join(", ")}`,
+  title: `${site.name} | ${site.roles.join(", ")}`,
   description: site.heroDescription,
   alternates: { canonical: "/" },
 };

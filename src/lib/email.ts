@@ -23,7 +23,7 @@ export async function sendContactEmail(data: ContactInput): Promise<SendResult> 
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO_EMAIL ?? site.contact.email;
   const from = process.env.CONTACT_FROM_EMAIL ?? FROM_FALLBACK;
-  const subject = `[Site] ${projectTypeLabel(data.projectType)} — ${data.name}`;
+  const subject = `[Site] ${projectTypeLabel(data.projectType)}: ${data.name}`;
 
   const text = [
     `Nome: ${data.name}`,

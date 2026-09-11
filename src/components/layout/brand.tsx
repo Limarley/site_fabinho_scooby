@@ -6,7 +6,7 @@ export function Brand({ className, size = "md" }: { className?: string; size?: "
   return (
     <Link
       href="/#home"
-      aria-label="Fabinho Scooby — início"
+      aria-label="Fabinho Scooby, início"
       className={cn(
         "inline-flex items-center gap-2.5 font-semibold tracking-tight",
         size === "lg" ? "text-lg" : "text-sm sm:text-base",

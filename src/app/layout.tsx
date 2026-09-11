@@ -22,7 +22,7 @@ const display = Inter_Tight({
   display: "swap",
 });
 
-const title = `${site.name} — ${site.roles.join(", ")}`;
+const title = `${site.name} | ${site.roles.join(", ")}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

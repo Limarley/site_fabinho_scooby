@@ -22,8 +22,8 @@
     "title": "A Bahia é o Mundo.",
     "paragraphs": [
       "Nascido no Carnaval de 1980, em Salvador. Começou de ouvido, observando. Sem professor, sem partitura: só a vontade de tocar o que escutava.",
-      "Hoje no palco com 30PRAUM, WIU e Teto. Tecladista, diretor musical e produtor — de Salvador para o mundo, com indicação ao Latin Grammy.",
-      "O #TECLADISMO nasceu daí: ensinar e conectar quem vive de teclado — instrumento, harmonia, groove, produção e carreira.",
+      "Hoje no palco com 30PRAUM, WIU e Teto. Tecladista, diretor musical e produtor, de Salvador para o mundo, com indicação ao Latin Grammy.",
+      "O #TECLADISMO nasceu daí: ensinar e conectar quem vive de teclado, instrumento, harmonia, groove, produção e carreira.",
       "A base continua sendo a Bahia. É dali que saem as turnês, as produções e o ensino."
     ]
   },
@@ -90,21 +90,21 @@
       "id": "palco",
       "name": "Palco e direção",
       "topics": ["Shows", "Turnês", "Direção musical"],
-      "description": "Teclados e direção musical em cima do palco — Jammil e Uma Noites, 30PRAUM e turnês pelo Brasil, Estados Unidos, Europa e Oceania.",
+      "description": "Teclados e direção musical em cima do palco, com Jammil e Uma Noites, 30PRAUM e turnês pelo Brasil, Estados Unidos, Europa e Oceania.",
       "href": "/#contato"
     },
     {
       "id": "producao",
       "name": "Produção PLUS+",
       "topics": ["Arranjo", "Beat making", "Estúdio"],
-      "description": "Sócio da PLUS+ desde 2011. Produção e arranjo para artistas e marcas — créditos com ATTØØXXA e Carlinhos Brown.",
+      "description": "Sócio da PLUS+ desde 2011. Produção e arranjo para artistas e marcas, com créditos de ATTØØXXA e Carlinhos Brown.",
       "href": "/?tipo=producao#contato"
     },
     {
       "id": "tecladismo",
       "name": "#TECLADISMO",
       "topics": ["Teclado", "Harmonia", "Groove", "Produção"],
-      "description": "Aulas e comunidade no Tecladismo Brasil: instrumento, software e carreira — sem catálogo inventado, o convite é direto.",
+      "description": "Aulas e comunidade no Tecladismo Brasil: instrumento, software e carreira. O convite é direto.",
       "href": "/?tipo=tecladismo#contato"
     }
   ],

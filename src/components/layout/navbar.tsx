@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "@/lib/content";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 import { Brand } from "@/components/layout/brand";
 
 type SectionId = (typeof navLinks)[number]["id"];
@@ -109,17 +108,14 @@ export function Navbar() {
           })}
         </ul>
 
-        <div className="flex items-center gap-2">
-          <Button asChild size="sm" className="hidden md:inline-flex">
-            <a href="#contato">Contato</a>
-          </Button>
+        <div className="flex items-center md:hidden">
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Fechar menu" : "Abrir menu"}
-            className="inline-flex size-10 items-center justify-center rounded-full border border-border md:hidden"
+            className="inline-flex size-10 items-center justify-center rounded-full border border-border"
           >
             {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
@@ -150,13 +146,6 @@ export function Navbar() {
               </li>
             );
           })}
-          <li className="pt-5">
-            <Button asChild size="lg" className="w-full">
-              <a href="#contato" onClick={close}>
-                Fale com o Fabinho
-              </a>
-            </Button>
-          </li>
         </ul>
       </div>
     </header>

@@ -5,7 +5,7 @@ import { creditos, site } from "@/lib/content";
 
 function creditsAsText(): string {
   return creditos
-    .map((c) => `${c.artist} — "${c.work}" (${c.role}${c.year ? `, ${c.year}` : ""})`)
+    .map((c) => `${c.artist}, "${c.work}" (${c.role}${c.year ? `, ${c.year}` : ""})`)
     .join("\n");
 }
 
@@ -80,7 +80,7 @@ export function PressKit() {
             <ul className="mt-5 space-y-2 text-sm text-muted">
               {creditos.map((c) => (
                 <li key={c.id}>
-                  <span className="text-foreground">{c.artist}</span> — &ldquo;{c.work}&rdquo;{" "}
+                  <span className="text-foreground">{c.artist}</span>, &ldquo;{c.work}&rdquo;{" "}
                   <span className="text-accent">({c.role})</span>
                 </li>
               ))}

@@ -30,20 +30,20 @@ export function HomeQuem() {
             ))}
           </div>
           <p className="mt-8 text-sm text-accent-fg/50">
-            {endorsement.brand} — {endorsement.description}
+            {endorsement.brand}. {endorsement.description}
           </p>
         </Reveal>
 
-        <Reveal delay={0.08} className="relative">
-          <div className="relative mx-auto aspect-[3/4] max-h-[520px] w-full max-w-md overflow-hidden">
-            <Image
-              src={pressPhoto.src}
-              alt={pressPhoto.alt}
-              fill
-              sizes="(min-width: 1024px) 420px, 80vw"
-              className="object-cover object-top invert"
-            />
-          </div>
+        <Reveal delay={0.08} className="relative mx-auto w-full max-w-md">
+          <Image
+            src="/images/fabinho-scooby-bio.png"
+            alt={pressPhoto.alt}
+            width={936}
+            height={1120}
+            sizes="(min-width: 1024px) 420px, 80vw"
+            unoptimized
+            className="h-auto w-full"
+          />
         </Reveal>
       </div>
 

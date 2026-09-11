@@ -35,7 +35,7 @@ export function HomeTrabalho() {
             title={featuredPodcast.title}
           />
           <p className="mt-4 text-sm text-muted">
-            {featuredPodcast.title} — {featuredPodcast.caption}
+            {featuredPodcast.title}. {featuredPodcast.caption}
           </p>
         </Reveal>
 
@@ -71,7 +71,7 @@ export function HomeTrabalho() {
               const body = (
                 <>
                   <span className="font-display font-bold">{c.artist}</span>
-                  {" — "}
+                  {", "}
                   &ldquo;{c.work}&rdquo;{" "}
                   <span className="text-muted">({c.role})</span>
                 </>
