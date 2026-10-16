@@ -1,36 +1,35 @@
 [
   {
-    "id": "jammil-resenha",
+    "id": "jammil-na-real",
     "artist": "Jammil e Uma Noites",
-    "work": "Resenha Do Dread",
-    "role": "Composição",
-    "spotify": "https://open.spotify.com/track/2pSN5picBQSMhxtkynNYe2"
+    "work": "DVD Na Real",
+    "role": "Teclados"
   },
   {
-    "id": "attooxxa-groove",
-    "artist": "ATTØØXXA",
-    "work": "Groove",
-    "role": "Arranjo"
-  },
-  {
-    "id": "attooxxa-favela",
-    "artist": "ATTØØXXA / Carlinhos Brown",
-    "work": "Da Favela Pro Asfalto",
-    "role": "Arranjo",
-    "spotify": "https://open.spotify.com/track/4zXCNJjfSRR0VgnzuNVR3C"
+    "id": "jammil-praias",
+    "artist": "Jammil e Uma Noites",
+    "work": "DVD Jammil de Todas as Praias",
+    "role": "Teclados"
   },
   {
     "id": "attooxxa-sai",
     "artist": "ATTØØXXA",
     "work": "Sai da Frente",
+    "album": "Da favela pro Asfalto",
     "role": "Teclado, synth e arranjo",
     "spotify": "https://open.spotify.com/track/7wGnTtXw2ZWMcFLDnA5lvR"
+  },
+  {
+    "id": "karol-slow",
+    "artist": "Karol Conká",
+    "work": "SLOW",
+    "album": "Urucum"
   },
   {
     "id": "matue-333",
     "artist": "Matuê",
     "work": "333",
-    "role": "Teclados (30PRAUM)",
+    "role": "Produção e arranjos",
     "year": "2024",
     "spotify": "https://open.spotify.com/track/7zILDYgo1dImCU8fcYuBdj"
   }

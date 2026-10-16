@@ -5,7 +5,7 @@ export type SocialLinks = {
 
 export type ContactInfo = {
   email: string;
-  /** Número no formato internacional, somente dígitos. Ex: 5571999999999 */
+  /** Número no formato internacional, somente dígitos. Vazio = oculto. */
   whatsapp: string;
   whatsappMessage: string;
 };
@@ -79,7 +79,10 @@ export type Credit = {
   id: string;
   artist: string;
   work: string;
-  role: string;
+  /** Função no trabalho. Omitir quando o crédito for só disco + faixa. */
+  role?: string;
+  /** Disco ou álbum em que a faixa entrou. */
+  album?: string;
   year?: string;
   /** Link da faixa no Spotify, quando houver. */
   spotify?: string;

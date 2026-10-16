@@ -16,11 +16,10 @@ export function TeaserBio() {
       <div className="grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16">
         <Reveal>
           <p className="text-lg text-muted">
-            Músico profissional desde 1999, Fabinho construiu a carreira no
-            palco: do mercado baiano e nordestino às turnês pelo Brasil,
-            Estados Unidos, Europa e Oceania. Tecladista do Jammil e Uma Noites
-            desde 2011 e do 30PRAUM, assina composições, arranjos e produções ao
-            lado de nomes como ATTØØXXA e Carlinhos Brown.
+            Músico baiano na estrada desde 1999. De 2011 a 2021 no Jammil e Uma
+            Noites, no DVD Na Real, indicado ao Grammy Latino. Desde 2022,
+            tecladista da 30PRAUM com Matuê, WIU e Teto, com produção e arranjos
+            do álbum 333.
           </p>
           <Button asChild variant="link" className="mt-6 text-base">
             <Link href="/#bio">

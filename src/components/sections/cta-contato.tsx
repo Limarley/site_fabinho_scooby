@@ -3,7 +3,7 @@ import { ArrowRight, Mail, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/reveal";
 import { SocialLinks } from "@/components/layout/social-links";
-import { site, whatsappUrl } from "@/lib/content";
+import { emailHref, whatsappUrl } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 export function CtaContato({
@@ -31,26 +31,30 @@ export function CtaContato({
         </Link>
       </Button>
       <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
-        <Button
-          asChild
-          variant="outline"
-          className="w-full border-accent-fg/40 text-accent-fg hover:border-accent-fg hover:text-accent-fg sm:w-auto"
-        >
-          <a href={`mailto:${site.contact.email}`}>
-            <Mail />
-            E-mail
-          </a>
-        </Button>
-        <Button
-          asChild
-          variant="outline"
-          className="w-full border-accent-fg/40 text-accent-fg hover:border-accent-fg hover:text-accent-fg sm:w-auto"
-        >
-          <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">
-            <MessageCircle />
-            WhatsApp
-          </a>
-        </Button>
+        {emailHref() ? (
+          <Button
+            asChild
+            variant="outline"
+            className="w-full border-accent-fg/40 text-accent-fg hover:border-accent-fg hover:text-accent-fg sm:w-auto"
+          >
+            <a href={emailHref()!}>
+              <Mail />
+              E-mail
+            </a>
+          </Button>
+        ) : null}
+        {whatsappUrl() ? (
+          <Button
+            asChild
+            variant="outline"
+            className="w-full border-accent-fg/40 text-accent-fg hover:border-accent-fg hover:text-accent-fg sm:w-auto"
+          >
+            <a href={whatsappUrl()!} target="_blank" rel="noopener noreferrer">
+              <MessageCircle />
+              WhatsApp
+            </a>
+          </Button>
+        ) : null}
       </div>
     </div>
   );

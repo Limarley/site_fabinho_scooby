@@ -3,7 +3,7 @@
     "id": "1999",
     "period": "1999",
     "title": "Início da carreira profissional",
-    "description": "Começa a atuar como sideman e freelancer no mercado baiano e nordestino, tocando de arrocha a zouk."
+    "description": "Músico baiano na estrada desde 1999, entre palcos, estúdios e diferentes universos musicais."
   },
   {
     "id": "2001",
@@ -19,28 +19,28 @@
   },
   {
     "id": "2011",
-    "period": "2011",
-    "title": "Jammil e Uma Noites e PLUS+",
-    "description": "Assume os teclados do Jammil e Uma Noites e se torna sócio proprietário da produtora PLUS+.",
+    "period": "2011–2021",
+    "title": "Jammil e Uma Noites",
+    "description": "Integrou a banda em grandes projetos e turnês nacionais e internacionais. Créditos no DVD Na Real, indicado ao Grammy Latino, e no DVD Jammil de Todas as Praias.",
     "featured": true
   },
   {
-    "id": "dvd",
-    "period": "2014–2015",
-    "title": "DVD \"Jammil de Todas as Praias\"",
-    "description": "Gravação ao vivo com crédito de teclados. No mesmo período, assina a composição \"Resenha Do Dread\"."
-  },
-  {
-    "id": "grammy",
-    "period": "Latin Grammy",
-    "title": "Indicação ao Latin Grammy",
-    "description": "Reconhecimento internacional pelo trabalho ao lado de grandes nomes da música brasileira.",
-    "featured": true
-  },
-  {
-    "id": "30praum",
-    "period": "Atualmente",
+    "id": "2022",
+    "period": "Desde 2022",
     "title": "30PRAUM",
-    "description": "Tecladista do 30PRAUM, além de arranjos e produções com ATTØØXXA e Carlinhos Brown."
+    "description": "Tecladista de Matuê, WIU e Teto. Duas edições do The Town, Rock in Rio Lisboa 2026, e produção e arranjos do álbum 333, de Matuê.",
+    "featured": true
+  },
+  {
+    "id": "plus",
+    "period": "Produção",
+    "title": "PLUS+ e PreethovenBeatz",
+    "description": "Fundador da PLUS+ Produção Musical, ao lado de @billyrasec e @davisonbiola. No PreethovenBeatz, liga música brasileira, ritmos afro-diaspóricos, eletrônica e a cultura dos teclados."
+  },
+  {
+    "id": "educacao",
+    "period": "Educação",
+    "title": "#Tecladismo e Pracatum",
+    "description": "Idealizador do #Tecladismo. Professor de Produção Musical Urbana na Escola Pracatum, ao lado de @nairo_Elo e @fellabrown."
   }
 ]

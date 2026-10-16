@@ -24,8 +24,8 @@ export function HomeTrabalho() {
             Palco, estúdio e #TECLADISMO.
           </h2>
           <p className="mt-4 text-base text-muted sm:text-lg">
-            O que ele faz: shows e direção, produção na PLUS+ e ensino de teclado.
-            No COST FLOW, o próprio Scooby conta a trajetória.
+            Palco com a 30PRAUM, produção na PLUS+ e educação no #Tecladismo e na
+            Pracatum. No COST FLOW, o próprio Scooby conta a trajetória.
           </p>
         </header>
 
@@ -71,9 +71,28 @@ export function HomeTrabalho() {
               const body = (
                 <>
                   <span className="font-display font-bold">{c.artist}</span>
-                  {", "}
-                  &ldquo;{c.work}&rdquo;{" "}
-                  <span className="text-muted">({c.role})</span>
+                  {c.album ? (
+                    <>
+                      {", Disco "}
+                      &ldquo;{c.album}&rdquo;
+                      {", Música "}
+                      &ldquo;{c.work}&rdquo;
+                    </>
+                  ) : (
+                    <>
+                      {", "}
+                      &ldquo;{c.work}&rdquo;
+                    </>
+                  )}
+                  {c.role ? (
+                    <>
+                      {" "}
+                      <span className="text-muted">
+                        ({c.role}
+                        {c.year ? `, ${c.year}` : ""})
+                      </span>
+                    </>
+                  ) : null}
                 </>
               );
               const className =

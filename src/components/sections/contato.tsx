@@ -2,7 +2,7 @@ import { Mail, MessageCircle, Clock3 } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { SocialLinks } from "@/components/layout/social-links";
 import { ContactForm } from "@/components/sections/contact-form";
-import { site, whatsappDisplay, whatsappUrl } from "@/lib/content";
+import { emailHref, site, whatsappDisplay, whatsappUrl } from "@/lib/content";
 
 export function Contato({ defaultProjectType }: { defaultProjectType?: string }) {
   return (
@@ -37,45 +37,77 @@ export function Contato({ defaultProjectType }: { defaultProjectType?: string })
 
             <ul className="flex flex-col gap-4">
               <li>
-                <a
-                  href={`mailto:${site.contact.email}`}
-                  className="group flex items-start gap-4 rounded-2xl border border-accent-fg/20 p-5 transition-colors hover:border-accent-fg"
-                >
-                  <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-accent-fg/10">
-                    <Mail aria-hidden="true" className="size-5" />
-                  </span>
-                  <span>
-                    <span className="block text-xs uppercase tracking-[0.18em] text-accent-fg/55">
-                      E-mail
+                {emailHref() ? (
+                  <a
+                    href={emailHref()!}
+                    className="group flex items-start gap-4 rounded-2xl border border-accent-fg/20 p-5 transition-colors hover:border-accent-fg"
+                  >
+                    <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-accent-fg/10">
+                      <Mail aria-hidden="true" className="size-5" />
                     </span>
-                    <span className="mt-1 block font-display text-lg font-bold group-hover:text-white">
-                      {site.contact.email}
+                    <span>
+                      <span className="block text-xs uppercase tracking-[0.18em] text-accent-fg/55">
+                        E-mail
+                      </span>
+                      <span className="mt-1 block font-display text-lg font-bold group-hover:text-white">
+                        {site.contact.email}
+                      </span>
                     </span>
-                  </span>
-                </a>
+                  </a>
+                ) : (
+                  <div className="flex items-start gap-4 rounded-2xl border border-accent-fg/20 p-5">
+                    <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-accent-fg/10">
+                      <Mail aria-hidden="true" className="size-5" />
+                    </span>
+                    <span>
+                      <span className="block text-xs uppercase tracking-[0.18em] text-accent-fg/55">
+                        E-mail
+                      </span>
+                      <span className="mt-1 block font-display text-lg font-bold">
+                        {site.contact.email}
+                      </span>
+                    </span>
+                  </div>
+                )}
               </li>
               <li>
-                <a
-                  href={whatsappUrl()}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-start gap-4 rounded-2xl border border-accent-fg/20 p-5 transition-colors hover:border-accent-fg"
-                >
-                  <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-accent-fg/10">
-                    <MessageCircle aria-hidden="true" className="size-5" />
-                  </span>
-                  <span>
-                    <span className="block text-xs uppercase tracking-[0.18em] text-accent-fg/55">
-                      WhatsApp
+                {whatsappUrl() ? (
+                  <a
+                    href={whatsappUrl()!}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-start gap-4 rounded-2xl border border-accent-fg/20 p-5 transition-colors hover:border-accent-fg"
+                  >
+                    <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-accent-fg/10">
+                      <MessageCircle aria-hidden="true" className="size-5" />
                     </span>
-                    <span className="mt-1 block font-display text-lg font-bold group-hover:text-white">
-                      {whatsappDisplay()}
+                    <span>
+                      <span className="block text-xs uppercase tracking-[0.18em] text-accent-fg/55">
+                        WhatsApp
+                      </span>
+                      <span className="mt-1 block font-display text-lg font-bold group-hover:text-white">
+                        {whatsappDisplay()}
+                      </span>
+                      <span className="mt-1 block text-sm text-accent-fg/60">
+                        Abre uma conversa com mensagem pronta.
+                      </span>
                     </span>
-                    <span className="mt-1 block text-sm text-accent-fg/60">
-                      Abre uma conversa com mensagem pronta.
+                  </a>
+                ) : (
+                  <div className="flex items-start gap-4 rounded-2xl border border-accent-fg/20 p-5">
+                    <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-full bg-accent-fg/10">
+                      <MessageCircle aria-hidden="true" className="size-5" />
                     </span>
-                  </span>
-                </a>
+                    <span>
+                      <span className="block text-xs uppercase tracking-[0.18em] text-accent-fg/55">
+                        WhatsApp
+                      </span>
+                      <span className="mt-1 block min-h-7 font-display text-lg font-bold">
+                        {whatsappDisplay() ?? "\u00a0"}
+                      </span>
+                    </span>
+                  </div>
+                )}
               </li>
             </ul>
 

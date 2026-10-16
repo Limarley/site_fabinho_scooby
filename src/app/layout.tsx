@@ -43,7 +43,10 @@ export const metadata: Metadata = {
     "Salvador",
     "Jammil e Uma Noites",
     "30PRAUM",
-    "Tecladismo Brasil",
+    "Matuê",
+    "#Tecladismo",
+    "PLUS+ Produção Musical",
+    "Escola Pracatum",
   ],
   openGraph: {
     type: "website",

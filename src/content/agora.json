@@ -2,19 +2,25 @@
   {
     "id": "30praum",
     "name": "30PRAUM",
+    "role": "Desde 2022",
+    "description": "Tecladista da equipe, no corre de Matuê, WIU e Teto."
+  },
+  {
+    "id": "matue",
+    "name": "Matuê",
     "role": "Tecladista",
-    "description": "Teclados no selo e nos palcos da 30PRAUM, o presente da carreira."
+    "description": "Palco, produção e arranjos do álbum 333."
   },
   {
     "id": "wiu",
     "name": "WIU",
-    "role": "Palco",
-    "description": "Nos palcos de agora, ao lado de WIU."
+    "role": "Tecladista",
+    "description": "Nos palcos da 30PRAUM, ao lado de WIU."
   },
   {
     "id": "teto",
     "name": "Teto",
-    "role": "Palco",
-    "description": "Nos palcos de agora, ao lado de Teto."
+    "role": "Tecladista",
+    "description": "Nos palcos da 30PRAUM, ao lado de Teto."
   }
 ]

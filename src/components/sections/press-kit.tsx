@@ -3,10 +3,16 @@ import { CopyButton } from "@/components/ui/copy-button";
 import { Reveal } from "@/components/ui/reveal";
 import { creditos, site } from "@/lib/content";
 
+function creditLine(c: (typeof creditos)[number]): string {
+  const title = c.album
+    ? `${c.artist}, Disco "${c.album}", Música "${c.work}"`
+    : `${c.artist}, "${c.work}"`;
+  if (!c.role) return title;
+  return `${title} (${c.role}${c.year ? `, ${c.year}` : ""})`;
+}
+
 function creditsAsText(): string {
-  return creditos
-    .map((c) => `${c.artist}, "${c.work}" (${c.role}${c.year ? `, ${c.year}` : ""})`)
-    .join("\n");
+  return creditos.map((c) => creditLine(c)).join("\n");
 }
 
 export function PressKit() {
@@ -80,8 +86,15 @@ export function PressKit() {
             <ul className="mt-5 space-y-2 text-sm text-muted">
               {creditos.map((c) => (
                 <li key={c.id}>
-                  <span className="text-foreground">{c.artist}</span>, &ldquo;{c.work}&rdquo;{" "}
-                  <span className="text-accent">({c.role})</span>
+                  <span className="text-foreground">{c.artist}</span>
+                  {c.album ? (
+                    <>
+                      , Disco &ldquo;{c.album}&rdquo;, Música &ldquo;{c.work}&rdquo;
+                    </>
+                  ) : (
+                    <>, &ldquo;{c.work}&rdquo;</>
+                  )}
+                  {c.role ? <span className="text-accent"> ({c.role})</span> : null}
                 </li>
               ))}
             </ul>

@@ -34,20 +34,25 @@ export const navLinks = [
 
 export const allRoles = [
   "Tecladista",
-  "Diretor musical",
-  "Produtor musical",
-  "Arranjador",
-  "Programador",
-  "Beat maker",
-  "Educador musical",
+  "Diretor Musical",
+  "Produtor",
 ] as const;
 
+export function emailHref() {
+  const email = site.contact.email;
+  if (!email.includes("@")) return null;
+  return `mailto:${email}`;
+}
+
 export function whatsappUrl(message = site.contact.whatsappMessage) {
-  return `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(message)}`;
+  const n = site.contact.whatsapp;
+  if (!n) return null;
+  return `https://wa.me/${n}?text=${encodeURIComponent(message)}`;
 }
 
 export function whatsappDisplay() {
   const n = site.contact.whatsapp;
+  if (!n) return null;
   if (n.length !== 13) return `+${n}`;
   return `+${n.slice(0, 2)} (${n.slice(2, 4)}) ${n.slice(4, 9)}-${n.slice(9)}`;
 }

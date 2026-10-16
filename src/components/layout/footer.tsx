@@ -1,4 +1,4 @@
-import { site } from "@/lib/content";
+import { emailHref, site } from "@/lib/content";
 import { SocialLinks } from "./social-links";
 import { Brand } from "./brand";
 
@@ -14,12 +14,16 @@ export function Footer() {
           </p>
         </div>
         <div className="flex flex-col gap-3 sm:items-end">
-          <a
-            href={`mailto:${site.contact.email}`}
-            className="text-sm text-muted transition-colors hover:text-ink"
-          >
-            {site.contact.email}
-          </a>
+          {emailHref() ? (
+            <a
+              href={emailHref()!}
+              className="text-sm text-muted transition-colors hover:text-ink"
+            >
+              {site.contact.email}
+            </a>
+          ) : (
+            <p className="text-sm text-muted">{site.contact.email}</p>
+          )}
           <SocialLinks />
         </div>
       </div>

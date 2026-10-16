@@ -66,6 +66,9 @@ export function CreditosGrid({ items }: Props) {
             </span>
             <div className="min-w-0">
               <p className="text-xs uppercase tracking-[0.18em] text-muted">{c.artist}</p>
+              {c.album ? (
+                <p className="mt-1 text-sm text-muted">Disco &ldquo;{c.album}&rdquo;</p>
+              ) : null}
               <h3 className="mt-1 font-display text-xl font-bold leading-snug">
                 {c.spotify ? (
                   <a
@@ -74,18 +77,20 @@ export function CreditosGrid({ items }: Props) {
                     rel="noopener noreferrer"
                     className="hover:text-accent"
                   >
-                    &ldquo;{c.work}&rdquo;
+                    {c.album ? "Música " : null}&ldquo;{c.work}&rdquo;
                   </a>
                 ) : (
                   <>
-                    &ldquo;{c.work}&rdquo;
+                    {c.album ? "Música " : null}&ldquo;{c.work}&rdquo;
                   </>
                 )}
               </h3>
-              <p className="mt-2 text-sm text-accent">
-                {c.role}
-                {c.year ? <span className="text-muted"> · {c.year}</span> : null}
-              </p>
+              {c.role ? (
+                <p className="mt-2 text-sm text-accent">
+                  {c.role}
+                  {c.year ? <span className="text-muted"> · {c.year}</span> : null}
+                </p>
+              ) : null}
             </div>
           </li>
         ))}

@@ -21,7 +21,7 @@ export function personJsonLd() {
     image: absoluteUrl(site.pressPhoto.src),
     description: site.bioShort,
     jobTitle: site.roles,
-    email: `mailto:${site.contact.email}`,
+    ...(site.contact.email.includes("@") ? { email: `mailto:${site.contact.email}` } : {}),
     address: {
       "@type": "PostalAddress",
       addressLocality: "Salvador",
@@ -29,10 +29,8 @@ export function personJsonLd() {
       addressCountry: "BR",
     },
     sameAs: [site.social.instagram, site.social.spotify],
-    memberOf: [
-      { "@type": "MusicGroup", name: "Jammil e Uma Noites" },
-      { "@type": "MusicGroup", name: "30PRAUM" },
-    ],
+    alumniOf: { "@type": "MusicGroup", name: "Jammil e Uma Noites" },
+    memberOf: { "@type": "MusicGroup", name: "30PRAUM" },
     knowsAbout: [
       "Teclado",
       "Direção musical",
@@ -50,7 +48,7 @@ export function performingGroupsJsonLd() {
       {
         "@type": "MusicGroup",
         name: "Jammil e Uma Noites",
-        member: { "@id": `${siteUrl}/#person` },
+        alumni: { "@id": `${siteUrl}/#person` },
       },
       {
         "@type": "MusicGroup",
@@ -58,8 +56,8 @@ export function performingGroupsJsonLd() {
         member: { "@id": `${siteUrl}/#person` },
       },
       {
-        "@type": "MusicGroup",
-        name: "3h3ads Keys",
+        "@type": "Organization",
+        name: "PLUS+ Produção Musical",
         founder: { "@id": `${siteUrl}/#person` },
       },
     ],
