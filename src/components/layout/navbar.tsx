@@ -82,7 +82,7 @@ export function Navbar() {
       >
         <Brand />
 
-        <div className="hidden min-w-0 justify-self-center sm:flex">
+        <div className="flex min-w-0 justify-self-center">
           <HeaderPlayer />
         </div>
 

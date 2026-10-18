@@ -165,7 +165,7 @@ export function HeaderPlayer() {
         </button>
       </div>
 
-      <div className="flex w-32 shrink-0 items-center gap-1.5">
+      <div className="hidden w-32 shrink-0 items-center gap-1.5 sm:flex">
         <span className="w-7 shrink-0 text-right text-[10px] tabular-nums text-muted">
           {formatTime(position)}
         </span>
