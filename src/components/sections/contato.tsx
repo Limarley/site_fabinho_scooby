@@ -126,10 +126,17 @@ export function Contato({ defaultProjectType }: { defaultProjectType?: string })
           </Reveal>
         </div>
 
-        <div className="mt-16 flex items-center gap-2.5 border-t border-accent-fg/10 pt-8 text-sm font-semibold tracking-tight text-accent-fg">
-          <span aria-hidden="true" className="size-2 rounded-full bg-accent-fg" />
-          Fabinho Scooby
-          <span className="font-normal text-accent-fg/55">· {site.location}</span>
+        <div className="mt-16 flex flex-col gap-4 border-t border-accent-fg/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center gap-2.5 text-sm font-semibold tracking-tight text-accent-fg">
+            <span aria-hidden="true" className="size-2 rounded-full bg-accent-fg" />
+            Fabinho Scooby
+            <span className="font-normal text-accent-fg/55">
+              · {site.location} · #TECLADISMO
+            </span>
+          </div>
+          <p className="text-xs text-accent-fg/50">
+            © {new Date().getFullYear()} {site.name}
+          </p>
         </div>
       </div>
     </section>
