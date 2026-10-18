@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Inter_Tight } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
 import { HashScroll } from "@/components/layout/hash-scroll";
 import { JsonLd, personJsonLd } from "@/components/seo/json-ld";
 import { site } from "@/lib/content";
@@ -88,7 +87,6 @@ export default function RootLayout({
         <main id="conteudo" className="flex-1">
           {children}
         </main>
-        <Footer />
         <JsonLd data={personJsonLd()} />
         <Analytics />
       </body>
