@@ -141,9 +141,8 @@ export function Navbar() {
           </div>
         </nav>
 
-        <div className="container-site flex items-center justify-center gap-2 pb-2 sm:hidden">
-          <PlayerName className="max-w-[40%] truncate text-xs font-medium text-foreground" />
-          <PlayerTimeline className="flex w-32 shrink-0 items-center gap-1.5" />
+        <div className="container-site flex items-center justify-center pb-2 sm:hidden">
+          <PlayerName className="max-w-[70%] truncate text-xs font-medium text-foreground" />
         </div>
       </HeaderPlayerProvider>
 
