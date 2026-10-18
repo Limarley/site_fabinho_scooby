@@ -78,15 +78,15 @@ export function Navbar() {
     >
       <nav
         aria-label="Principal"
-        className="container-site grid h-16 grid-cols-[auto_1fr_auto] items-center gap-3 sm:h-20"
+        className="container-site relative flex h-16 items-center justify-between sm:h-20"
       >
         <Brand />
 
-        <div className="flex min-w-0 justify-self-center">
+        <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2">
           <HeaderPlayer />
         </div>
 
-        <div className="flex items-center justify-self-end gap-1">
+        <div className="flex items-center gap-1">
           <ul className="hidden items-center gap-1 md:flex">
             {navLinks.map((link) => {
               const isActive = active === link.id;
