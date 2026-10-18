@@ -65,13 +65,20 @@ export function HeaderPlayerProvider({ children }: { children: ReactNode }) {
   const controllerRef = useRef<SpotifyEmbedController | null>(null);
   const trackIndexRef = useRef(0);
   const trackEndedRef = useRef(false);
-  const loadTokenRef = useRef(0);
-  const playTimeoutsRef = useRef<ReturnType<typeof setTimeout>[]>([]);
+  const playRetryRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const playTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [ready, setReady] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [position, setPosition] = useState(0);
   const [duration, setDuration] = useState(playlist[0].duration);
   const [trackIndex, setTrackIndex] = useState(0);
+
+  const stopPlayRetry = () => {
+    if (playRetryRef.current) clearInterval(playRetryRef.current);
+    if (playTimeoutRef.current) clearTimeout(playTimeoutRef.current);
+    playRetryRef.current = null;
+    playTimeoutRef.current = null;
+  };
 
   const goToTrack = (index: number) => {
     const track = playlist[index];
@@ -82,14 +89,13 @@ export function HeaderPlayerProvider({ children }: { children: ReactNode }) {
     setPosition(0);
     setDuration(track.duration);
     controllerRef.current.loadEntity(track.uri);
+    controllerRef.current.play();
 
-    playTimeoutsRef.current.forEach(clearTimeout);
-    const loadToken = ++loadTokenRef.current;
-    playTimeoutsRef.current = [150, 500, 1200].map((delay) =>
-      setTimeout(() => {
-        if (loadTokenRef.current === loadToken) controllerRef.current?.play();
-      }, delay),
-    );
+    stopPlayRetry();
+    // loadEntity needs a moment to actually swap the track before play()
+    // takes effect, so keep nudging it every ~120ms until it catches on.
+    playRetryRef.current = setInterval(() => controllerRef.current?.play(), 120);
+    playTimeoutRef.current = setTimeout(stopPlayRetry, 4000);
   };
 
   const prev = () => goToTrack((trackIndexRef.current - 1 + playlist.length) % playlist.length);
@@ -114,6 +120,7 @@ export function HeaderPlayerProvider({ children }: { children: ReactNode }) {
             setIsPaused(paused);
             setPosition(pos);
             if (dur > 0) setDuration(dur);
+            if (!paused) stopPlayRetry();
 
             const nearEnd = dur > 1000 && pos >= dur - 1000;
             if (nearEnd && paused) {
@@ -132,7 +139,7 @@ export function HeaderPlayerProvider({ children }: { children: ReactNode }) {
 
     return () => {
       cancelled = true;
-      playTimeoutsRef.current.forEach(clearTimeout);
+      stopPlayRetry();
       controllerRef.current?.destroy();
       controllerRef.current = null;
     };
