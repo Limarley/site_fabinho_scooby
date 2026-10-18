@@ -12,12 +12,12 @@ export function Contato({ defaultProjectType }: { defaultProjectType?: string })
       className="scroll-mt-20 bg-ink text-accent-fg"
     >
       <div className="container-site py-20 sm:py-28">
-        <header className="mb-10 max-w-2xl sm:mb-14">
+        <header className="mb-10 sm:mb-14">
           <p className="eyebrow mb-3 text-accent-fg/55">Contato</p>
           <h2 id="contato-title" className="heading-display text-4xl sm:text-5xl md:text-6xl">
             Começar agora
           </h2>
-          <p className="mt-5 max-w-lg text-accent-fg/70 sm:text-lg">
+          <p className="copy-justify mt-5 text-accent-fg/70 sm:text-lg">
             Bookings, produção, aulas de #TECLADISMO e parcerias. Formulário, e-mail ou WhatsApp.
           </p>
         </header>

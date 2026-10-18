@@ -81,6 +81,10 @@
   @apply text-xs font-semibold uppercase tracking-[0.2em] text-muted;
 }
 
+@utility copy-justify {
+  @apply text-justify hyphens-auto;
+}
+
 @utility hairline {
   @apply border-t border-border;
 }

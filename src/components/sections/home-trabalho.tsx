@@ -15,7 +15,7 @@ export function HomeTrabalho() {
       className="scroll-mt-20 bg-surface"
     >
       <div className="container-site py-20 sm:py-28">
-        <header className="mb-10 max-w-2xl sm:mb-14">
+        <header className="mb-10 sm:mb-14">
           <p className="eyebrow mb-3">Portfólio</p>
           <h2
             id="home-trabalho-title"
@@ -23,7 +23,7 @@ export function HomeTrabalho() {
           >
             Palco, estúdio e #TECLADISMO.
           </h2>
-          <p className="mt-4 text-base text-muted sm:text-lg">
+          <p className="copy-justify mt-4 text-base text-muted sm:text-lg">
             Palco com a 30PRAUM, produção na PLUS+ e educação no #Tecladismo e na
             Pracatum. No COST FLOW, o próprio Scooby conta a trajetória.
           </p>
@@ -52,7 +52,7 @@ export function HomeTrabalho() {
                     <p className="mt-2 text-xs uppercase tracking-[0.18em] text-muted">
                       {offer.topics.join(" · ")}
                     </p>
-                    <p className="mt-4 text-sm text-muted">{offer.description}</p>
+                    <p className="copy-justify mt-4 text-sm text-muted">{offer.description}</p>
                   </div>
                   <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold group-hover:text-accent">
                     Falar sobre isso

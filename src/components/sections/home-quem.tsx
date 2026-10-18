@@ -24,9 +24,11 @@ export function HomeQuem() {
           >
             {homeQuem.title}
           </h2>
-          <div className="mt-8 max-w-xl space-y-4 text-base text-accent-fg/75 sm:text-lg">
+          <div className="mt-8 space-y-4 text-base text-accent-fg/75 sm:text-lg">
             {homeQuem.paragraphs.map((p) => (
-              <p key={p}>{p}</p>
+              <p key={p} className="copy-justify">
+                {p}
+              </p>
             ))}
           </div>
           <p className="mt-8 text-sm text-accent-fg/50">

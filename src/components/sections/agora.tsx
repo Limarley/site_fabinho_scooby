@@ -27,7 +27,12 @@ export function Agora({ variant = "light" }: { variant?: "light" | "ink" }) {
             >
               {item.role}
             </p>
-            <p className={cn("mt-4 text-sm sm:text-base", ink ? "text-accent-fg/70" : "text-muted")}>
+            <p
+              className={cn(
+                "copy-justify mt-4 text-sm sm:text-base",
+                ink ? "text-accent-fg/70" : "text-muted",
+              )}
+            >
               {item.description}
             </p>
           </Reveal>

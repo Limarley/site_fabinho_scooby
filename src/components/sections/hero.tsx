@@ -50,8 +50,8 @@ export function Hero() {
 
         <div className="py-8 sm:py-10">
           <p className="eyebrow mb-3">#TECLADISMO</p>
-          <p className="max-w-2xl text-lg text-muted sm:text-xl">{site.heroDescription}</p>
-          <p className="mt-3 max-w-2xl text-sm text-muted">{site.tagline}</p>
+          <p className="copy-justify text-lg text-muted sm:text-xl">{site.heroDescription}</p>
+          <p className="copy-justify mt-3 text-sm text-muted">{site.tagline}</p>
         </div>
       </div>
     </section>
