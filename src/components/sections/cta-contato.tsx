@@ -79,7 +79,7 @@ export function CtaContato({
   return (
     <section
       className={cn(
-        "scroll-mt-[90px] sm:scroll-mt-20",
+        "scroll-mt-20",
         isBand ? "bg-ink text-accent-fg" : "py-16 sm:py-24",
       )}
     >

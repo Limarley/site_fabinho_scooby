@@ -11,7 +11,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="scroll-mt-[90px] pt-[106px] sm:scroll-mt-20 sm:pt-24"
+      className="scroll-mt-20 pt-20 sm:pt-24"
       aria-labelledby="hero-title"
     >
       <div className="container-site">

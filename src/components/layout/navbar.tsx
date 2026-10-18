@@ -140,10 +140,6 @@ export function Navbar() {
             </div>
           </div>
         </nav>
-
-        <div className="container-site flex items-center justify-center pb-2 sm:hidden">
-          <PlayerName className="max-w-[70%] truncate text-xs font-medium text-foreground" />
-        </div>
       </HeaderPlayerProvider>
 
       <div

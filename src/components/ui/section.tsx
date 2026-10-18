@@ -20,7 +20,7 @@ export function Section({
 }: SectionProps) {
   return (
     <section
-      className={cn("py-16 sm:py-24 scroll-mt-[90px] sm:scroll-mt-20", className)}
+      className={cn("py-16 sm:py-24 scroll-mt-20", className)}
       {...props}
     >
       <div className="container-site">

@@ -12,7 +12,7 @@ export function HomeTrabalho() {
     <section
       id="portfolio"
       aria-labelledby="home-trabalho-title"
-      className="scroll-mt-[90px] bg-surface sm:scroll-mt-20"
+      className="scroll-mt-20 bg-surface"
     >
       <div className="container-site py-20 sm:py-28">
         <header className="mb-10 sm:mb-14">

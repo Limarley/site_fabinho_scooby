@@ -9,7 +9,7 @@ export function Contato({ defaultProjectType }: { defaultProjectType?: string })
     <section
       id="contato"
       aria-labelledby="contato-title"
-      className="scroll-mt-[90px] bg-ink text-accent-fg sm:scroll-mt-20"
+      className="scroll-mt-20 bg-ink text-accent-fg"
     >
       <div className="container-site py-20 sm:py-28">
         <header className="mb-10 sm:mb-14">
