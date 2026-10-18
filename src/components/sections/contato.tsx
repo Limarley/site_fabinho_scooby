@@ -125,6 +125,12 @@ export function Contato({ defaultProjectType }: { defaultProjectType?: string })
             </div>
           </Reveal>
         </div>
+
+        <div className="mt-16 flex items-center gap-2.5 border-t border-accent-fg/10 pt-8 text-sm font-semibold tracking-tight text-accent-fg">
+          <span aria-hidden="true" className="size-2 rounded-full bg-accent-fg" />
+          Fabinho Scooby
+          <span className="font-normal text-accent-fg/55">· {site.location}</span>
+        </div>
       </div>
     </section>
   );
