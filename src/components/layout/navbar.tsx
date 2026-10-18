@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import { navLinks } from "@/lib/content";
 import { cn } from "@/lib/utils";
 import { Brand } from "@/components/layout/brand";
+import { HeaderPlayer } from "@/components/layout/header-player";
 
 type SectionId = (typeof navLinks)[number]["id"];
 
@@ -77,48 +78,54 @@ export function Navbar() {
     >
       <nav
         aria-label="Principal"
-        className="container-site flex h-16 items-center justify-between sm:h-20"
+        className="container-site grid h-16 grid-cols-[auto_1fr_auto] items-center gap-3 sm:h-20"
       >
         <Brand />
 
-        <ul className="hidden items-center gap-1 md:flex">
-          {navLinks.map((link) => {
-            const isActive = active === link.id;
-            return (
-              <li key={link.id}>
-                <a
-                  href={link.href}
-                  aria-current={isActive ? "true" : undefined}
-                  onClick={() => setActive(link.id)}
-                  className={cn(
-                    "relative rounded-full px-4 py-2 text-sm font-medium transition-colors hover:text-foreground",
-                    isActive ? "text-foreground" : "text-muted",
-                  )}
-                >
-                  {link.label}
-                  {isActive && (
-                    <span
-                      aria-hidden="true"
-                      className="absolute inset-x-4 -bottom-0.5 h-0.5 rounded-full bg-ink"
-                    />
-                  )}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
+        <div className="hidden min-w-0 justify-self-center sm:flex">
+          <HeaderPlayer />
+        </div>
 
-        <div className="flex items-center md:hidden">
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-            aria-label={open ? "Fechar menu" : "Abrir menu"}
-            className="inline-flex size-10 items-center justify-center rounded-full border border-border"
-          >
-            {open ? <X className="size-5" /> : <Menu className="size-5" />}
-          </button>
+        <div className="flex items-center justify-self-end gap-1">
+          <ul className="hidden items-center gap-1 md:flex">
+            {navLinks.map((link) => {
+              const isActive = active === link.id;
+              return (
+                <li key={link.id}>
+                  <a
+                    href={link.href}
+                    aria-current={isActive ? "true" : undefined}
+                    onClick={() => setActive(link.id)}
+                    className={cn(
+                      "relative rounded-full px-4 py-2 text-sm font-medium transition-colors hover:text-foreground",
+                      isActive ? "text-foreground" : "text-muted",
+                    )}
+                  >
+                    {link.label}
+                    {isActive && (
+                      <span
+                        aria-hidden="true"
+                        className="absolute inset-x-4 -bottom-0.5 h-0.5 rounded-full bg-ink"
+                      />
+                    )}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="flex items-center md:hidden">
+            <button
+              type="button"
+              onClick={() => setOpen((v) => !v)}
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+              aria-label={open ? "Fechar menu" : "Abrir menu"}
+              className="inline-flex size-10 items-center justify-center rounded-full border border-border"
+            >
+              {open ? <X className="size-5" /> : <Menu className="size-5" />}
+            </button>
+          </div>
         </div>
       </nav>
 
