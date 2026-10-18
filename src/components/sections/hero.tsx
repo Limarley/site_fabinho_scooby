@@ -9,7 +9,11 @@ import { site } from "@/lib/content";
  */
 export function Hero() {
   return (
-    <section id="home" className="scroll-mt-20 pt-20 sm:pt-24" aria-labelledby="hero-title">
+    <section
+      id="home"
+      className="scroll-mt-[90px] pt-[106px] sm:scroll-mt-20 sm:pt-24"
+      aria-labelledby="hero-title"
+    >
       <div className="container-site">
         <div className="frame relative isolate h-[580px] overflow-hidden bg-background animate-fade-up sm:h-[660px] lg:h-[clamp(640px,calc(100svh-8.5rem),880px)]">
           <div

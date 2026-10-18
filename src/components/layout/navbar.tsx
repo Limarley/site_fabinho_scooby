@@ -5,7 +5,12 @@ import { Menu, X } from "lucide-react";
 import { navLinks } from "@/lib/content";
 import { cn } from "@/lib/utils";
 import { Brand } from "@/components/layout/brand";
-import { HeaderPlayer } from "@/components/layout/header-player";
+import {
+  HeaderPlayerProvider,
+  PlayerControls,
+  PlayerName,
+  PlayerTimeline,
+} from "@/components/layout/header-player";
 
 type SectionId = (typeof navLinks)[number]["id"];
 
@@ -76,58 +81,71 @@ export function Navbar() {
           : "bg-background",
       )}
     >
-      <nav
-        aria-label="Principal"
-        className="container-site relative flex h-16 items-center justify-between sm:h-20"
-      >
-        <Brand />
+      <HeaderPlayerProvider>
+        <nav
+          aria-label="Principal"
+          className="container-site relative flex h-16 items-center justify-between sm:h-20"
+        >
+          <Brand />
 
-        <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2">
-          <HeaderPlayer />
-        </div>
-
-        <div className="flex items-center gap-1">
-          <ul className="hidden items-center gap-1 md:flex">
-            {navLinks.map((link) => {
-              const isActive = active === link.id;
-              return (
-                <li key={link.id}>
-                  <a
-                    href={link.href}
-                    aria-current={isActive ? "true" : undefined}
-                    onClick={() => setActive(link.id)}
-                    className={cn(
-                      "relative rounded-full px-4 py-2 text-sm font-medium transition-colors hover:text-foreground",
-                      isActive ? "text-foreground" : "text-muted",
-                    )}
-                  >
-                    {link.label}
-                    {isActive && (
-                      <span
-                        aria-hidden="true"
-                        className="absolute inset-x-4 -bottom-0.5 h-0.5 rounded-full bg-ink"
-                      />
-                    )}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-
-          <div className="flex items-center md:hidden">
-            <button
-              type="button"
-              onClick={() => setOpen((v) => !v)}
-              aria-expanded={open}
-              aria-controls="mobile-menu"
-              aria-label={open ? "Fechar menu" : "Abrir menu"}
-              className="inline-flex size-10 items-center justify-center rounded-full border border-border"
-            >
-              {open ? <X className="size-5" /> : <Menu className="size-5" />}
-            </button>
+          <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 sm:hidden">
+            <PlayerControls />
           </div>
+
+          <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-3 sm:flex">
+            <PlayerName className="hidden max-w-32 truncate text-xs font-medium text-foreground lg:block" />
+            <PlayerControls />
+            <PlayerTimeline />
+          </div>
+
+          <div className="flex items-center gap-1">
+            <ul className="hidden items-center gap-1 md:flex">
+              {navLinks.map((link) => {
+                const isActive = active === link.id;
+                return (
+                  <li key={link.id}>
+                    <a
+                      href={link.href}
+                      aria-current={isActive ? "true" : undefined}
+                      onClick={() => setActive(link.id)}
+                      className={cn(
+                        "relative rounded-full px-4 py-2 text-sm font-medium transition-colors hover:text-foreground",
+                        isActive ? "text-foreground" : "text-muted",
+                      )}
+                    >
+                      {link.label}
+                      {isActive && (
+                        <span
+                          aria-hidden="true"
+                          className="absolute inset-x-4 -bottom-0.5 h-0.5 rounded-full bg-ink"
+                        />
+                      )}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+
+            <div className="flex items-center md:hidden">
+              <button
+                type="button"
+                onClick={() => setOpen((v) => !v)}
+                aria-expanded={open}
+                aria-controls="mobile-menu"
+                aria-label={open ? "Fechar menu" : "Abrir menu"}
+                className="inline-flex size-10 items-center justify-center rounded-full border border-border"
+              >
+                {open ? <X className="size-5" /> : <Menu className="size-5" />}
+              </button>
+            </div>
+          </div>
+        </nav>
+
+        <div className="container-site flex items-center justify-center gap-2 pb-2 sm:hidden">
+          <PlayerName className="max-w-[40%] truncate text-xs font-medium text-foreground" />
+          <PlayerTimeline className="flex w-32 shrink-0 items-center gap-1.5" />
         </div>
-      </nav>
+      </HeaderPlayerProvider>
 
       <div
         id="mobile-menu"

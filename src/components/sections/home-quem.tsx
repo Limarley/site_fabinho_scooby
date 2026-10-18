@@ -11,7 +11,7 @@ export function HomeQuem() {
     <section
       id="bio"
       aria-labelledby="home-quem-title"
-      className="scroll-mt-20 bg-ink text-accent-fg"
+      className="scroll-mt-[90px] bg-ink text-accent-fg sm:scroll-mt-20"
     >
       <div className="container-site grid gap-12 py-20 sm:py-28 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-16">
         <Reveal>

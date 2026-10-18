@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
+import type { ReactNode } from "react";
 import Script from "next/script";
 import { Pause, Play, SkipBack, SkipForward } from "lucide-react";
 import playlist from "@/content/playlist.json";
@@ -45,7 +46,21 @@ function formatTime(ms: number) {
   return `${minutes}:${seconds.toString().padStart(2, "0")}`;
 }
 
-export function HeaderPlayer() {
+interface PlayerState {
+  ready: boolean;
+  isPaused: boolean;
+  position: number;
+  duration: number;
+  current: (typeof playlist)[number];
+  togglePlay: () => void;
+  prev: () => void;
+  next: () => void;
+  seek: (ratio: number) => void;
+}
+
+const PlayerContext = createContext<PlayerState | null>(null);
+
+export function HeaderPlayerProvider({ children }: { children: ReactNode }) {
   const mountRef = useRef<HTMLDivElement>(null);
   const controllerRef = useRef<SpotifyEmbedController | null>(null);
   const trackIndexRef = useRef(0);
@@ -124,18 +139,25 @@ export function HeaderPlayer() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const seek = (e: React.MouseEvent<HTMLDivElement>) => {
+  const seek = (ratio: number) => {
     if (!controllerRef.current || duration <= 0) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    const ratio = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
     controllerRef.current.seek((ratio * duration) / 1000);
   };
 
-  const current = playlist[trackIndex];
-  const progress = duration > 0 ? Math.min(1, position / duration) : 0;
+  const value: PlayerState = {
+    ready,
+    isPaused,
+    position,
+    duration,
+    current: playlist[trackIndex],
+    togglePlay: () => controllerRef.current?.togglePlay(),
+    prev,
+    next,
+    seek,
+  };
 
   return (
-    <div className="flex min-w-0 items-center gap-3">
+    <PlayerContext.Provider value={value}>
       <Script src="https://open.spotify.com/embed/iframe-api/v1" strategy="afterInteractive" />
       <div
         ref={mountRef}
@@ -149,62 +171,92 @@ export function HeaderPlayer() {
           pointerEvents: "none",
         }}
       />
+      {children}
+    </PlayerContext.Provider>
+  );
+}
 
-      <p className="hidden max-w-32 truncate text-xs font-medium text-foreground lg:block">
-        {current.title}
-        <span className="text-muted"> · {current.artist}</span>
-      </p>
+function usePlayer() {
+  const ctx = useContext(PlayerContext);
+  if (!ctx) throw new Error("usePlayer must be used within HeaderPlayerProvider");
+  return ctx;
+}
 
-      <div className="flex shrink-0 items-center gap-1">
-        <button
-          type="button"
-          onClick={prev}
-          disabled={!ready}
-          aria-label="Faixa anterior"
-          className="inline-flex size-6 items-center justify-center rounded-full text-ink transition-colors hover:bg-surface-2 disabled:opacity-40"
-        >
-          <SkipBack className="size-3" fill="currentColor" />
-        </button>
+export function PlayerControls({ className }: { className?: string }) {
+  const { ready, isPaused, togglePlay, prev, next } = usePlayer();
+  return (
+    <div className={className ?? "flex shrink-0 items-center gap-1"}>
+      <button
+        type="button"
+        onClick={prev}
+        disabled={!ready}
+        aria-label="Faixa anterior"
+        className="inline-flex size-6 items-center justify-center rounded-full text-ink transition-colors hover:bg-surface-2 disabled:opacity-40"
+      >
+        <SkipBack className="size-3" fill="currentColor" />
+      </button>
 
-        <button
-          type="button"
-          onClick={() => controllerRef.current?.togglePlay()}
-          disabled={!ready}
-          aria-label={isPaused ? "Tocar" : "Pausar"}
-          className="inline-flex size-7 items-center justify-center rounded-full bg-ink text-accent-fg transition-opacity hover:bg-accent-soft disabled:opacity-40"
-        >
-          {isPaused ? (
-            <Play className="size-3 translate-x-[1px]" fill="currentColor" />
-          ) : (
-            <Pause className="size-3" fill="currentColor" />
-          )}
-        </button>
+      <button
+        type="button"
+        onClick={togglePlay}
+        disabled={!ready}
+        aria-label={isPaused ? "Tocar" : "Pausar"}
+        className="inline-flex size-7 items-center justify-center rounded-full bg-ink text-accent-fg transition-opacity hover:bg-accent-soft disabled:opacity-40"
+      >
+        {isPaused ? (
+          <Play className="size-3 translate-x-[1px]" fill="currentColor" />
+        ) : (
+          <Pause className="size-3" fill="currentColor" />
+        )}
+      </button>
 
-        <button
-          type="button"
-          onClick={next}
-          disabled={!ready}
-          aria-label="Próxima faixa"
-          className="inline-flex size-6 items-center justify-center rounded-full text-ink transition-colors hover:bg-surface-2 disabled:opacity-40"
-        >
-          <SkipForward className="size-3" fill="currentColor" />
-        </button>
+      <button
+        type="button"
+        onClick={next}
+        disabled={!ready}
+        aria-label="Próxima faixa"
+        className="inline-flex size-6 items-center justify-center rounded-full text-ink transition-colors hover:bg-surface-2 disabled:opacity-40"
+      >
+        <SkipForward className="size-3" fill="currentColor" />
+      </button>
+    </div>
+  );
+}
+
+export function PlayerName({ className }: { className?: string }) {
+  const { current } = usePlayer();
+  return (
+    <p className={className ?? "max-w-32 truncate text-xs font-medium text-foreground"}>
+      {current.title}
+      <span className="text-muted"> · {current.artist}</span>
+    </p>
+  );
+}
+
+export function PlayerTimeline({ className }: { className?: string }) {
+  const { position, duration, seek } = usePlayer();
+  const progress = duration > 0 ? Math.min(1, position / duration) : 0;
+
+  const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const ratio = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+    seek(ratio);
+  };
+
+  return (
+    <div className={className ?? "flex w-32 shrink-0 items-center gap-1.5"}>
+      <span className="w-7 shrink-0 text-right text-[10px] tabular-nums text-muted">
+        {formatTime(position)}
+      </span>
+      <div onClick={handleSeek} className="relative h-1 flex-1 cursor-pointer rounded-full bg-border">
+        <div
+          className="absolute inset-y-0 left-0 rounded-full bg-ink"
+          style={{ width: `${progress * 100}%` }}
+        />
       </div>
-
-      <div className="hidden w-32 shrink-0 items-center gap-1.5 sm:flex">
-        <span className="w-7 shrink-0 text-right text-[10px] tabular-nums text-muted">
-          {formatTime(position)}
-        </span>
-        <div onClick={seek} className="relative h-1 flex-1 cursor-pointer rounded-full bg-border">
-          <div
-            className="absolute inset-y-0 left-0 rounded-full bg-ink"
-            style={{ width: `${progress * 100}%` }}
-          />
-        </div>
-        <span className="w-7 shrink-0 text-[10px] tabular-nums text-muted">
-          {formatTime(duration)}
-        </span>
-      </div>
+      <span className="w-7 shrink-0 text-[10px] tabular-nums text-muted">
+        {formatTime(duration)}
+      </span>
     </div>
   );
 }

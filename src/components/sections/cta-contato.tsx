@@ -78,7 +78,10 @@ export function CtaContato({
 
   return (
     <section
-      className={cn("scroll-mt-20", isBand ? "bg-ink text-accent-fg" : "py-16 sm:py-24")}
+      className={cn(
+        "scroll-mt-[90px] sm:scroll-mt-20",
+        isBand ? "bg-ink text-accent-fg" : "py-16 sm:py-24",
+      )}
     >
       <div className={cn(isBand ? "container-site py-20 sm:py-28" : "container-site")}>
         {isBand ? (
