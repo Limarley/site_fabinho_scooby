@@ -48,11 +48,37 @@ function formatTime(ms: number) {
 export function HeaderPlayer() {
   const mountRef = useRef<HTMLDivElement>(null);
   const controllerRef = useRef<SpotifyEmbedController | null>(null);
+  const trackIndexRef = useRef(0);
+  const trackEndedRef = useRef(false);
+  const loadTokenRef = useRef(0);
+  const playTimeoutsRef = useRef<ReturnType<typeof setTimeout>[]>([]);
   const [ready, setReady] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [position, setPosition] = useState(0);
   const [duration, setDuration] = useState(playlist[0].duration);
   const [trackIndex, setTrackIndex] = useState(0);
+
+  const goToTrack = (index: number) => {
+    const track = playlist[index];
+    if (!track || !controllerRef.current) return;
+    trackEndedRef.current = false;
+    trackIndexRef.current = index;
+    setTrackIndex(index);
+    setPosition(0);
+    setDuration(track.duration);
+    controllerRef.current.loadEntity(track.uri);
+
+    playTimeoutsRef.current.forEach(clearTimeout);
+    const loadToken = ++loadTokenRef.current;
+    playTimeoutsRef.current = [150, 500, 1200].map((delay) =>
+      setTimeout(() => {
+        if (loadTokenRef.current === loadToken) controllerRef.current?.play();
+      }, delay),
+    );
+  };
+
+  const prev = () => goToTrack((trackIndexRef.current - 1 + playlist.length) % playlist.length);
+  const next = () => goToTrack((trackIndexRef.current + 1) % playlist.length);
 
   useEffect(() => {
     let cancelled = false;
@@ -69,9 +95,20 @@ export function HeaderPlayer() {
           }
           controllerRef.current = controller;
           controller.addListener("playback_update", (e) => {
-            setIsPaused(e.data.isPaused);
-            setPosition(e.data.position);
-            if (e.data.duration > 0) setDuration(e.data.duration);
+            const { isPaused: paused, position: pos, duration: dur } = e.data;
+            setIsPaused(paused);
+            setPosition(pos);
+            if (dur > 0) setDuration(dur);
+
+            const nearEnd = dur > 1000 && pos >= dur - 1000;
+            if (nearEnd && paused) {
+              if (!trackEndedRef.current) {
+                trackEndedRef.current = true;
+                next();
+              }
+            } else {
+              trackEndedRef.current = false;
+            }
           });
           setReady(true);
         },
@@ -80,23 +117,12 @@ export function HeaderPlayer() {
 
     return () => {
       cancelled = true;
+      playTimeoutsRef.current.forEach(clearTimeout);
       controllerRef.current?.destroy();
       controllerRef.current = null;
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const goToTrack = (index: number) => {
-    const track = playlist[index];
-    if (!track || !controllerRef.current) return;
-    setTrackIndex(index);
-    setPosition(0);
-    setDuration(track.duration);
-    controllerRef.current.loadEntity(track.uri);
-    controllerRef.current.play();
-  };
-
-  const prev = () => goToTrack((trackIndex - 1 + playlist.length) % playlist.length);
-  const next = () => goToTrack((trackIndex + 1) % playlist.length);
 
   const seek = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!controllerRef.current || duration <= 0) return;
