@@ -103,21 +103,24 @@
       "name": "Palco e direção",
       "topics": ["Shows", "Turnês", "Direção musical"],
       "description": "Desde 2022, tecladista da 30PRAUM com Matuê, WIU e Teto. Festivais como duas edições do The Town e o Rock in Rio Lisboa 2026. De 2011 a 2021, Jammil e Uma Noites.",
-      "href": "/#contato"
+      "href": "/#contato",
+      "image": "/images/portfolio/offers/palco.png"
     },
     {
       "id": "producao",
       "name": "PLUS+ Produção",
       "topics": ["Arranjo", "Beat making", "Estúdio"],
       "description": "Fundador da PLUS+ Produção Musical, ao lado de @billyrasec e @davisonbiola. Produção e arranjos do álbum 333, de Matuê, e o projeto PreethovenBeatz.",
-      "href": "/?tipo=producao#contato"
+      "href": "/?tipo=producao#contato",
+      "image": "/images/portfolio/offers/producao.jpeg"
     },
     {
       "id": "tecladismo",
       "name": "#TECLADISMO",
       "topics": ["Teclado", "Educação", "Pracatum"],
       "description": "Idealizador do #Tecladismo e professor de Produção Musical Urbana na Escola Pracatum, ao lado de @nairo_Elo e @fellabrown.",
-      "href": "/?tipo=tecladismo#contato"
+      "href": "/?tipo=tecladismo#contato",
+      "image": "/images/portfolio/offers/tecladismo.png"
     }
   ],
   "endorsement": {

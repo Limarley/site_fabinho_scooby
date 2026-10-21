@@ -36,12 +36,12 @@ export function HomeQuem() {
           </p>
         </Reveal>
 
-        <Reveal delay={0.08} className="relative mx-auto w-full max-w-md">
+        <Reveal delay={0.08} className="relative mx-auto w-full max-w-md self-start">
           <Image
             src="/images/fabinho-scooby-bio.png"
             alt={pressPhoto.alt}
-            width={936}
-            height={1120}
+            width={1024}
+            height={1535}
             sizes="(min-width: 1024px) 420px, 80vw"
             unoptimized
             className="h-auto w-full"

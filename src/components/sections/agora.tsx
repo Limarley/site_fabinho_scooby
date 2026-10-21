@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Reveal } from "@/components/ui/reveal";
 import { agora } from "@/lib/content";
 import { cn } from "@/lib/utils";
@@ -12,29 +13,30 @@ export function Agora({ variant = "light" }: { variant?: "light" | "ink" }) {
           <Reveal
             delay={i * 0.08}
             className={cn(
-              "flex h-full flex-col rounded-2xl border p-6",
-              ink
-                ? "border-accent-fg/20 bg-accent-fg/5"
-                : "border-border bg-surface/60",
+              "group relative flex h-full flex-col overflow-hidden rounded-2xl border p-6",
+              ink ? "border-accent-fg/20" : "border-border",
             )}
           >
-            <p className="heading-display text-3xl">{item.name}</p>
-            <p
-              className={cn(
-                "mt-2 text-xs uppercase tracking-[0.18em]",
-                ink ? "text-accent-fg/55" : "text-accent",
-              )}
-            >
-              {item.role}
-            </p>
-            <p
-              className={cn(
-                "copy-justify mt-4 text-sm sm:text-base",
-                ink ? "text-accent-fg/70" : "text-muted",
-              )}
-            >
-              {item.description}
-            </p>
+            <Image
+              src={item.image}
+              alt=""
+              fill
+              sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-black/60 transition-colors group-hover:bg-black/50"
+            />
+            <div className="relative">
+              <p className="heading-display text-3xl text-white">{item.name}</p>
+              <p className="mt-2 text-xs uppercase tracking-[0.18em] text-white/70">
+                {item.role}
+              </p>
+              <p className="copy-justify mt-4 text-sm text-white/85 sm:text-base">
+                {item.description}
+              </p>
+            </div>
           </Reveal>
         </li>
       ))}

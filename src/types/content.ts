@@ -58,6 +58,7 @@ export type SiteContent = {
     topics: string[];
     description: string;
     href: string;
+    image: string;
   }[];
   endorsement: { brand: string; description: string };
   contact: ContactInfo;
@@ -100,6 +101,7 @@ export type AgoraItem = {
   name: string;
   role: string;
   description: string;
+  image: string;
 };
 
 export type ProducerContent = {

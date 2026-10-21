@@ -93,8 +93,8 @@ export function HeaderPlayerProvider({ children }: { children: ReactNode }) {
 
     stopPlayRetry();
     // loadEntity needs a moment to actually swap the track before play()
-    // takes effect, so keep nudging it every ~120ms until it catches on.
-    playRetryRef.current = setInterval(() => controllerRef.current?.play(), 120);
+    // takes effect, so keep nudging it every ~50ms until it catches on.
+    playRetryRef.current = setInterval(() => controllerRef.current?.play(), 50);
     playTimeoutRef.current = setTimeout(stopPlayRetry, 4000);
   };
 
@@ -115,6 +115,10 @@ export function HeaderPlayerProvider({ children }: { children: ReactNode }) {
             return;
           }
           controllerRef.current = controller;
+          // Browsers block audible autoplay without a user gesture, so try
+          // immediately (works in a few permissive browsers) and again on
+          // the very first interaction anywhere on the page.
+          controller.play();
           controller.addListener("playback_update", (e) => {
             const { isPaused: paused, position: pos, duration: dur } = e.data;
             setIsPaused(paused);
@@ -144,6 +148,24 @@ export function HeaderPlayerProvider({ children }: { children: ReactNode }) {
       controllerRef.current = null;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    const events: (keyof DocumentEventMap)[] = [
+      "pointerdown",
+      "touchstart",
+      "keydown",
+      "wheel",
+    ];
+    const tryPlay = () => {
+      // Controller may not be ready on the very first interaction yet;
+      // keep the listeners around until we actually manage to call play().
+      if (!controllerRef.current) return;
+      controllerRef.current.play();
+      events.forEach((event) => document.removeEventListener(event, tryPlay));
+    };
+    events.forEach((event) => document.addEventListener(event, tryPlay));
+    return () => events.forEach((event) => document.removeEventListener(event, tryPlay));
   }, []);
 
   const seek = (ratio: number) => {

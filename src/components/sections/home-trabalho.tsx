@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { YouTubeFacade } from "@/components/sections/youtube-facade";
@@ -45,16 +46,27 @@ export function HomeTrabalho() {
               <Reveal delay={i * 0.08} className="h-full">
                 <a
                   href={offer.href}
-                  className="group flex h-full flex-col justify-between rounded-2xl border border-border bg-background p-6 transition-colors hover:border-accent"
+                  className="group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-border p-6 transition-colors hover:border-accent"
                 >
-                  <div>
-                    <p className="heading-display text-2xl">{offer.name}</p>
-                    <p className="mt-2 text-xs uppercase tracking-[0.18em] text-muted">
+                  <Image
+                    src={offer.image}
+                    alt=""
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-black/55 transition-colors group-hover:bg-black/45"
+                  />
+                  <div className="relative">
+                    <p className="heading-display text-2xl text-white">{offer.name}</p>
+                    <p className="mt-2 text-xs uppercase tracking-[0.18em] text-white/80">
                       {offer.topics.join(" · ")}
                     </p>
-                    <p className="copy-justify mt-4 text-sm text-muted">{offer.description}</p>
+                    <p className="copy-justify mt-4 text-sm text-white/90">{offer.description}</p>
                   </div>
-                  <span className="mt-6 inline-flex items-center gap-1 text-sm font-semibold group-hover:text-accent">
+                  <span className="relative mt-6 inline-flex items-center gap-1 text-sm font-semibold text-white group-hover:text-accent-fg">
                     Falar sobre isso
                     <ArrowUpRight className="size-4" />
                   </span>
