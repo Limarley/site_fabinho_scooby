@@ -10,7 +10,7 @@
   "bioLong": [
     "Fabinho Scooby é músico baiano, na estrada desde 1999. Sua trajetória passa pelos palcos, estúdios e diferentes universos musicais, sempre misturando referências e buscando novas possibilidades sonoras.",
     "Entre 2011 e 2021, integrou a banda Jammil e Uma Noites, participando de grandes projetos, turnês nacionais e internacionais e do DVD Jammil Na Real, indicado ao Grammy Latino.",
-    "Desde 2022, integra a equipe da 30PRAUM, atuando como tecladista de Matuê, WIU e Teto. Nesse corre, já passou por grandes festivais, como duas edições do The Town, e pelo Rock in Rio Lisboa 2026. Também participou da produção e dos arranjos do álbum 333, de Matuê.",
+    "Desde 2022, integra a equipe da 30PRAUM, atuando como tecladista de Matuê, WIU e Teto. Nesse corre, já passou por grandes festivais, como Rock in Rio (2022 e 2024), Rock in Rio Lisboa (2026) e The Town (2023 e 2025). Também participou da produção e dos arranjos do álbum 333, de Matuê.",
     "É fundador da PLUS+ Produção Musical (@plusmais), ao lado de @billyrasec e @davisonbiola, ampliando sua atuação no mercado musical para além dos palcos e fortalecendo sua conexão com a produção.",
     "Na educação, é professor da Escola Pracatum (@apracatum), no curso de Produção Musical Urbana, compartilhando experiências e conhecimento ao lado de @nairo_Elo e @fellabrown.",
     "Idealizador do #Tecladismo, movimento que busca fortalecer e valorizar os tecladistas brasileiros, Scooby também assina o projeto PreethovenBeatz, onde explora as conexões entre música brasileira, ritmos afro-diaspóricos, eletrônica e a cultura dos teclados.",
@@ -26,7 +26,7 @@
     "paragraphs": [
       "Fabinho Scooby é músico baiano, na estrada desde 1999. Sua trajetória passa pelos palcos, estúdios e diferentes universos musicais, sempre misturando referências e buscando novas possibilidades sonoras.",
       "Entre 2011 e 2021, integrou a banda Jammil e Uma Noites, participando de grandes projetos, turnês nacionais e internacionais e do DVD Jammil Na Real, indicado ao Grammy Latino.",
-      "Desde 2022, integra a equipe da 30PRAUM, atuando como tecladista de Matuê, WIU e Teto. Nesse corre, já passou por grandes festivais, como duas edições do The Town, e pelo Rock in Rio Lisboa 2026. Também participou da produção e dos arranjos do álbum 333, de Matuê.",
+      "Desde 2022, integra a equipe da 30PRAUM, atuando como tecladista de Matuê, WIU e Teto. Nesse corre, já passou por grandes festivais, como Rock in Rio (2022 e 2024), Rock in Rio Lisboa (2026) e The Town (2023 e 2025). Também participou da produção e dos arranjos do álbum 333, de Matuê.",
       "É fundador da PLUS+ Produção Musical (@plusmais), ao lado de @billyrasec e @davisonbiola, ampliando sua atuação no mercado musical para além dos palcos e fortalecendo sua conexão com a produção.",
       "Na educação, é professor da Escola Pracatum (@apracatum), no curso de Produção Musical Urbana, compartilhando experiências e conhecimento ao lado de @nairo_Elo e @fellabrown.",
       "Idealizador do #Tecladismo, movimento que busca fortalecer e valorizar os tecladistas brasileiros, Scooby também assina o projeto PreethovenBeatz, onde explora as conexões entre música brasileira, ritmos afro-diaspóricos, eletrônica e a cultura dos teclados.",
@@ -37,7 +37,7 @@
     { "id": "grammy", "value": "Grammy Latino", "label": "DVD Na Real indicado" },
     { "id": "anos", "value": "Desde 1999", "label": "Na estrada" },
     { "id": "bandas", "value": "30PRAUM", "label": "Matuê, WIU e Teto" },
-    { "id": "turnes", "value": "The Town", "label": "Rock in Rio Lisboa 2026" }
+    { "id": "turnes", "value": "Rock in Rio", "label": "2022, 2024 e Lisboa 2026" }
   ],
   "education": [
     {
@@ -102,7 +102,7 @@
       "id": "palco",
       "name": "Palco e direção",
       "topics": ["Shows", "Turnês", "Direção musical"],
-      "description": "Desde 2022, tecladista da 30PRAUM com Matuê, WIU e Teto. Festivais como duas edições do The Town e o Rock in Rio Lisboa 2026. De 2011 a 2021, Jammil e Uma Noites.",
+      "description": "Desde 2022, tecladista da 30PRAUM com Matuê, WIU e Teto. Festivais como Rock in Rio (2022 e 2024), Rock in Rio Lisboa (2026) e The Town (2023 e 2025). De 2011 a 2021, Jammil e Uma Noites.",
       "href": "/#contato",
       "image": "/images/portfolio/offers/palco.png"
     },
