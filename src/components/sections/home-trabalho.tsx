@@ -76,60 +76,79 @@ export function HomeTrabalho() {
           ))}
         </ul>
 
-        <div className="mt-12">
-          <p className="eyebrow mb-4">Créditos</p>
-          <ul className="grid gap-3 sm:grid-cols-2">
-            {creditos.map((c) => {
-              const body = (
-                <>
-                  <span className="font-display font-bold">{c.artist}</span>
-                  {c.album ? (
-                    <>
-                      {", Disco "}
-                      &ldquo;{c.album}&rdquo;
-                      {", Música "}
-                      &ldquo;{c.work}&rdquo;
-                    </>
-                  ) : (
-                    <>
-                      {", "}
-                      &ldquo;{c.work}&rdquo;
-                    </>
-                  )}
-                  {c.role ? (
-                    <>
-                      {" "}
-                      <span className="text-muted">
-                        ({c.role}
-                        {c.year ? `, ${c.year}` : ""})
-                      </span>
-                    </>
-                  ) : null}
-                </>
-              );
-              const className =
-                "block rounded-2xl border border-border bg-background px-5 py-4 text-sm transition-colors";
-              return (
-                <li key={c.id}>
-                  {c.spotify ? (
-                    <a
-                      href={c.spotify}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`${className} group hover:border-accent`}
-                    >
-                      {body}
-                      <span className="mt-2 block text-xs font-semibold text-muted group-hover:text-accent">
-                        Ouvir no Spotify
-                      </span>
-                    </a>
-                  ) : (
-                    <div className={className}>{body}</div>
-                  )}
-                </li>
-              );
-            })}
-          </ul>
+        <div className="mt-12 grid gap-8 lg:grid-cols-[2fr_1fr] lg:items-start">
+          <div>
+            <p className="eyebrow mb-4">Créditos</p>
+            <ul className="grid gap-3 sm:grid-cols-2">
+              {creditos.map((c) => {
+                const body = (
+                  <>
+                    <span className="font-display font-bold">{c.artist}</span>
+                    {c.album ? (
+                      <>
+                        {", Disco "}
+                        &ldquo;{c.album}&rdquo;
+                        {", Música "}
+                        &ldquo;{c.work}&rdquo;
+                      </>
+                    ) : (
+                      <>
+                        {", "}
+                        &ldquo;{c.work}&rdquo;
+                      </>
+                    )}
+                    {c.role ? (
+                      <>
+                        {" "}
+                        <span className="text-muted">
+                          ({c.role}
+                          {c.year ? `, ${c.year}` : ""})
+                        </span>
+                      </>
+                    ) : null}
+                  </>
+                );
+                const className =
+                  "block rounded-2xl border border-border bg-background px-5 py-4 text-sm transition-colors";
+                return (
+                  <li key={c.id}>
+                    {c.spotify ? (
+                      <a
+                        href={c.spotify}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`${className} group hover:border-accent`}
+                      >
+                        {body}
+                        <span className="mt-2 block text-xs font-semibold text-muted group-hover:text-accent">
+                          Ouvir no Spotify
+                        </span>
+                      </a>
+                    ) : (
+                      <div className={className}>{body}</div>
+                    )}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          <a
+            href="https://www.youtube.com/@fabinhoscooby"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group block overflow-hidden rounded-2xl border border-border transition-colors hover:border-accent"
+          >
+            <video
+              src="/videos/fabinho-scooby.mp4"
+              poster="/images/portfolio/instagram/fabinho-scooby-poster.jpg"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="aspect-square w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          </a>
         </div>
 
         <div className="mt-10">
